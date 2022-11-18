@@ -1,0 +1,49 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
+use App\Http\Requests\HallRequest;
+use App\Models\Hall;
+use Illuminate\Support\Str;
+
+class HallController extends Controller
+{
+
+    public function index(){
+        $halls = Hall::all();
+        return view('admin.hall.index', compact('halls'));
+    }
+
+    public function create(){
+        return view('admin.hall.create');
+    }
+
+    public function edit($hall_id){
+        $hall = Hall::find($hall_id);
+        return view('admin.hall.edit', compact('hall'));
+    }
+
+    public function store(HallRequest $request){
+        $request->validated();
+        $slug = Str::slug($request['name']);
+        Hall::create($request->all() + ['slug' => $slug]);
+
+        return redirect()->route('admin/hall')->with('message', 'New Seance created');
+    }
+
+    public function update(HallRequest $request, $hall_id){
+        $request->validated();
+        $hall = Hall::find($hall_id);
+        $slug = Str::slug($request['name']);
+        $hall->update($request->all() + ['slug' => $slug]);
+
+        return redirect()->route('admin/hall')->with('message', 'Seance edited');
+    }
+
+    public function delete($hall_id){
+        Hall::destroy($hall_id);
+
+        return redirect()->route('admin/hall')->with('message', 'Hall deleted');
+    }
+}
