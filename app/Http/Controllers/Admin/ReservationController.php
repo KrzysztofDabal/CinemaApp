@@ -62,7 +62,6 @@ class ReservationController extends Controller
             'seat_column' => $decode_seat['column'],
             'name' => $user['name'],
             'surname' => $user['surname'],
-            'slug' => Str::slug($user['name'].' '.$user['surname']),
             'email' => $user['email'],
             'phone_number' => $user['phone_number']
 

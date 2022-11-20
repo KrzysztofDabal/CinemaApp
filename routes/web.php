@@ -1,30 +1,36 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Frontend\FrontendController;
+use App\Http\Controllers\Frontend\UserReservationController;
+use App\Http\Controllers\Frontend\GoogleController;
 
 
 Auth::routes();
 
-Route::get('/', [App\Http\Controllers\Frontend\FrontendController::class, 'index'])->name('home');
-Route::get('/home', [App\Http\Controllers\Frontend\FrontendController::class, 'index']);
-Route::get('/profile', [App\Http\Controllers\Frontend\FrontendController::class, 'dashboard'])->name('profile');
-Route::get('/about', [App\Http\Controllers\Frontend\FrontendController::class, 'about'])->name('about');
-Route::get('/regulamin', [App\Http\Controllers\Frontend\FrontendController::class, 'regulamin'])->name('regulamin');
+Route::get('/', [FrontendController::class, 'index'])->name('home');
+Route::get('/home', [FrontendController::class, 'index']);
+Route::get('/dashboard', [FrontendController::class, 'dashboard'])->name('profile');
+Route::get('/about', [FrontendController::class, 'about'])->name('about');
+Route::get('/regulamin', [FrontendController::class, 'regulamin'])->name('regulamin');
 
 Route::prefix('/movie')->group(function (){
-    Route::get('/', [App\Http\Controllers\Frontend\FrontendController::class, 'movies'])->name('movies');
-    Route::get('/{movie_id}', [App\Http\Controllers\Frontend\FrontendController::class, 'show_movie'])->name('show_movie');
+    Route::get('/', [FrontendController::class, 'movies'])->name('movies');
+    Route::get('/{movie_id}', [FrontendController::class, 'show_movie'])->name('show_movie');
 });
-
 Route::prefix('/seances')->group(function (){
-    Route::get('/', [App\Http\Controllers\Frontend\FrontendController::class, 'seances'])->name('seances');
-    Route::post('/', [App\Http\Controllers\Frontend\FrontendController::class, 'seances'])->name('seances');
+    Route::get('/', [FrontendController::class, 'seances'])->name('seances');
+    Route::post('/', [FrontendController::class, 'seances'])->name('seances');
+});
+Route::prefix('/reservation')->group(function (){
+    Route::get('/{seance_id}', [UserReservationController::class, 'reservation'])->name('reservation');
+    Route::post('/', [UserReservationController::class, 'create_user_reservation'])->name('add_reservation');
 });
 
-Route::prefix('/reservation')->group(function (){
-    Route::get('/{seance_id}', [App\Http\Controllers\Frontend\UserReservationController::class, 'reservation'])->name('reservation');
-    Route::post('/', [App\Http\Controllers\Frontend\UserReservationController::class, 'create_user_reservation'])->name('add_reservation');
-});
+//GOOGLE
+Route::get('/google/login', [GoogleController::class, 'provider'])->name('google.login');
+Route::get('/google/callback', [GoogleController::class, 'callback'])->name('google.callback');
+
 
 //ADMIN
 Route::prefix('/admin')->middleware(['auth', 'admin'])->group(function() {
@@ -32,12 +38,12 @@ Route::prefix('/admin')->middleware(['auth', 'admin'])->group(function() {
     //USER
     Route::prefix('/user')->group(function() {
         Route::get('/', [App\Http\Controllers\Admin\UserController::class, 'index'])->name('admin/user');
-        Route::get('/add_user', [App\Http\Controllers\Admin\UserController::class, 'create'])->name('admin/add_user');
-        Route::post('/add_user', [App\Http\Controllers\Admin\UserController::class, 'store'])->name('admin/add_user');
-        Route::get('/edit_user/{user_id}', [App\Http\Controllers\Admin\UserController::class, 'edit'])->name('admin/edit_user');
-        Route::put('/edit_user/{user_id}', [App\Http\Controllers\Admin\UserController::class, 'update'])->name('admin/edit_user');
-        Route::put('/change_role/{user_id}', [App\Http\Controllers\Admin\UserController::class, 'change_role'])->name('admin/change_role');
-        Route::get('/delete_user/{user_id}', [App\Http\Controllers\Admin\UserController::class, 'delete'])->name('admin/delete_user');
+        Route::get('/add_user', [App\Http\Controllers\Admin\UserController::class, 'create'])->name('admin/user.add');
+        Route::post('/add_user', [App\Http\Controllers\Admin\UserController::class, 'store'])->name('admin/user.add');
+        Route::get('/edit_user/{user_id}', [App\Http\Controllers\Admin\UserController::class, 'edit'])->name('admin/user.edit');
+        Route::put('/edit_user/{user_id}', [App\Http\Controllers\Admin\UserController::class, 'update'])->name('admin/user.edit');
+        Route::put('/change_role/{user_id}', [App\Http\Controllers\Admin\UserController::class, 'change_role'])->name('admin/change.role');
+        Route::get('/delete_user/{user_id}', [App\Http\Controllers\Admin\UserController::class, 'delete'])->name('admin/user.delete');
     });
     //MOVIE
     Route::prefix('/movie')->group(function() {

@@ -9,8 +9,6 @@ use App\Models\User;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Str;
 
 class UserController extends Controller
 {
@@ -33,12 +31,10 @@ class UserController extends Controller
     }
 
     public function fill_data(UserRequest $request, $user){
-        $data = $request->validated();
-        $user->name = $data['name'];
-        $user->surname = $data['surname'];
-        $user->slug = Str::slug($data['name'].'-'.$data['surname']);
-        $user->email = $data['email'];
-        $user->password = Hash::make($data['password']);
+        $user->name = $request['name'];
+        $user->surname = $request['surname'];
+        $user->email = $request['email'];
+        $user->password = Hash::make($request['password']);
 
 
         return $user;

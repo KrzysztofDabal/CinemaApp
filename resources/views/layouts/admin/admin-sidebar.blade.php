@@ -22,7 +22,7 @@
             </div>
 
             {{--                USER--}}
-            <a class="nav-link {{ Request::routeIs('admin/user')||Request::routeIs('admin/add_user') ? 'collapse active' : 'collapsed' }}" href="#" data-bs-toggle="collapse" data-bs-target="#collapseUser" aria-expanded="false" aria-controls="collapseLayouts">
+            <a class="nav-link {{ Request::routeIs('admin/user')||Request::routeIs('admin/user.add') ? 'collapse active' : 'collapsed' }}" href="#" data-bs-toggle="collapse" data-bs-target="#collapseUser" aria-expanded="false" aria-controls="collapseLayouts">
                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                 User
                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -30,7 +30,7 @@
             <div class="collapse {{ Request::routeIs('admin/user')||Request::routeIs('admin/add_user') ? 'show' : '' }}" id="collapseUser" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                 <nav class="sb-sidenav-menu-nested nav">
                     <a class="nav-link {{ Request::routeIs('admin/user') ? 'active' : '' }}" href="{{ route('admin/user') }}">View User</a>
-                    <a class="nav-link {{ Request::routeIs('admin/add_user') ? 'active' : '' }}" href="{{ route('admin/add_user') }}">Add User</a>
+                    <a class="nav-link {{ Request::routeIs('admin/user.add') ? 'active' : '' }}" href="{{ route('admin/user.add') }}">Add User</a>
                 </nav>
             </div>
 

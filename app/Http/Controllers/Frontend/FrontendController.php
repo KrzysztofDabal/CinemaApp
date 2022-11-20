@@ -21,7 +21,7 @@ class FrontendController extends Controller
     }
 
     public function dashboard(){
-        return view('frontend.profile.profile');
+        return view('frontend.profile.dashboard');
     }
 
     public function seances(Request $request){

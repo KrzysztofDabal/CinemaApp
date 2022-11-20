@@ -21,7 +21,6 @@ class UserSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'Pan',
             'surname' => 'Admin',
-            'slug' => Str::slug('Pan Admin'),
             'email' => 'admin@gmail.com',
             'phone_number' => 123456789,
             'role' => 3,

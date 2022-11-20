@@ -19,9 +19,8 @@ return new class extends Migration
             $table->foreignId('seance_id')->constrained()->onDelete('cascade');
             $table->string('name');
             $table->string('surname');
-            $table->string('slug');
             $table->string('email');
-            $table->integer('phone_number');
+            $table->integer('phone_number')->nullable();
             $table->integer('seat_row');
             $table->integer('seat_column');
             $table->boolean('paid')->default(false);

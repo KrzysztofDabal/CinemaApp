@@ -21,7 +21,7 @@
             @endif
 
             <div class="card-body">
-                <form method="POST" action="{{ route('admin/add_user') }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('admin/user.add') }}" enctype="multipart/form-data">
                     @csrf
 
                     <div class="row mb-3">

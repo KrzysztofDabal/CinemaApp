@@ -10,7 +10,7 @@
             <div class="card-header">
                 <i class="fas fa-table me-1"></i>
                 Users
-                <a href="{{ route('admin/add_user') }}" class="btn btn-primary btn-sm float-end">Add User</a>
+                <a href="{{ route('admin/user.add') }}" class="btn btn-primary btn-sm float-end">Add User</a>
             </div>
             <div class="card-body">
 
@@ -50,7 +50,7 @@
                                 </td>
                                 <td>It's you</td>
                             @else
-                                <form method="POST" action="{{ route('admin/change_role', $user->id) }}">
+                                <form method="POST" action="{{ route('admin/change.role', $user->id) }}">
                                     @csrf
                                     @method('PUT')
                                     <td>
@@ -67,8 +67,8 @@
                                     </td>
                                 </form>
                             @endif
-                            <td><a href="{{ route('admin/edit_user', $user->id) }}" class="btn btn-secondary btn-sm">Edit User</a></td>
-                            <td><a href="{{ route('admin/delete_user', $user->id) }}" class="btn btn-danger btn-sm">Delete User</a></td>
+                            <td><a href="{{ route('admin/user.edit', $user->id) }}" class="btn btn-secondary btn-sm">Edit User</a></td>
+                            <td><a href="{{ route('admin/user.delete', $user->id) }}" class="btn btn-danger btn-sm">Delete User</a></td>
                         </tr>
                     @endforeach
                     </tbody>
