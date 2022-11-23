@@ -37,8 +37,11 @@ class ReservationController extends Controller
         return view('admin.reservation.index', compact('reservations', 'row_name'));
     }
 
-    public function user_data($user){
-        if(is_object($user)){
+    public function user_data(Request $request, $user=null){
+        if(Auth::check()){
+            if (empty($user)) {
+                $user = Auth::user();
+            }else
             $user_data = [
                 'user_id' => $user->id,
                 'name' => $user->name,
@@ -48,13 +51,18 @@ class ReservationController extends Controller
             ];
         }
         else{
-            $user_data = $user;
+            $user_data = [
+                'user_id' => null,
+                'name' => $request->name,
+                'surname' => $request->surname,
+                'email' => $request->email,
+                'phone_number' => $request->phone_number
+            ];
         }
-
         return $user_data;
     }
 
-    public function reservation_array(ReservationRequest $request, $user, $decode_seat){
+    public function reservation_array(Request $request, $user, $decode_seat){
         $array = [
             'user_id'=>$user['user_id'],
             'seance_id'=>$request['seance_id'],
@@ -77,11 +85,14 @@ class ReservationController extends Controller
 
     public function select_seat(ReservationRequest $request){
         $row_name = $this->row_name;
-        $seance = Seance::find($request['seance_id']);
-        $hall_id = $seance['hall_id'];
-        $hall = Hall::find($hall_id);
-
-        return view('admin.reservation.select_seat', compact('hall', 'row_name', 'request'));
+        $user_id = $request['user_id'];
+//        $seance = Seance::find($request['seance_id']);
+//        $hall_id = $seance['hall_id'];
+//        $hall = Hall::find($hall_id);
+//
+//        return view('admin.reservation.select_seat', compact('hall', 'row_name', 'request'));
+        $seance = (new SeanceController())->seance_by_id($request['seance_id']);
+        return view('admin.reservation.select_seat', compact('seance', 'row_name', 'user_id'));
     }
 
     public function edit($reservation_id){
@@ -106,12 +117,12 @@ class ReservationController extends Controller
         return $seat;
     }
 
-    public function create_reservation (ReservationRequest $request){
+    public function create_reservation (Request $request){
         $seats = $request->input('seat');
-        $user = $this->user_data(User::find($request->user_id));
+        $user_data = $this->user_data($request, User::find($request->user_id));
         foreach ($seats as $seat){
             $decode_seat = $this->array_from_decode_json($seat);
-            $array = $this->reservation_array($request, $user, $decode_seat);
+            $array = $this->reservation_array($request, $user_data, $decode_seat);
 
             $this->store($array);
         }
@@ -130,8 +141,8 @@ class ReservationController extends Controller
     public function update_reservation (ReservationRequest $request, $reservation_id){
         $seat = $request->input('seat');
         $decode_seat = $this->array_from_decode_json($seat);
-        $user = $this->user_data(User::find($request->user_id));
-        $array = $this->reservation_array($request, $user, $decode_seat);
+        $user_data = $this->user_data(User::find($request, $request->user_id));
+        $array = $this->reservation_array($request, $user_data, $decode_seat);
 
         $this->update($array, $reservation_id);
     }

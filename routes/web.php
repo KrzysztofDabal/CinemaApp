@@ -23,8 +23,11 @@ Route::prefix('/seances')->group(function (){
     Route::post('/', [FrontendController::class, 'seances'])->name('seances');
 });
 Route::prefix('/reservation')->group(function (){
-    Route::get('/{seance_id}', [UserReservationController::class, 'reservation'])->name('reservation');
-    Route::post('/', [UserReservationController::class, 'create_user_reservation'])->name('add_reservation');
+    Route::get('/{seance_id}', [UserReservationController::class, 'seat_select'])->name('reservation.seat_select');
+    Route::post('/user_form', [UserReservationController::class, 'user_form'])->name('reservation.user_form');
+//    Route::post('/', [UserReservationController::class, 'create_user_reservation'])->name('reservation.add');
+    Route::post('/check_user', [UserReservationController::class, 'check_user'])->name('reservation.check_user');
+    Route::post('/guest', [UserReservationController::class, 'guest_user'])->name('reservation.guest_add');
 });
 
 //GOOGLE

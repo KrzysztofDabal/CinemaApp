@@ -25,7 +25,7 @@ class ReservationRequest extends FormRequest
     {
         $rules = [
             'user_id' => ['nullable', 'integer', 'max:100'],
-            'seance_id' => ['required', 'integer', 'max:100'],
+            'seance_id' => ['nullable', 'integer', 'max:100'],
             'seat_row' => ['nullable', 'integer', 'max:100'],
             'seat_column' => ['nullable', 'integer', 'max:100'],
         ];

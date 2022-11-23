@@ -18,8 +18,8 @@
                 <form method="POST" action="{{ route('admin/add_reservation') }}">
                     @csrf
 
-                    <input type="number" name="user_id" id="user_id" value="{{ $request['user_id'] }}" hidden>
-                    <input type="number" name="seance_id" id="seance_id" value="{{ $request['seance_id'] }}" hidden>
+                    <input type="number" name="user_id" id="user_id" value="{{ $user_id }}" hidden>
+                    <input type="number" name="seance_id" id="seance_id" value="{{ $seance->id }}" hidden>
 
                     <div class="row mb-3 justify-content-center">
 
@@ -27,12 +27,12 @@
                             EKRAN
                         </div>
                         <div class="col-md-8 bg-opacity-50 bg-dark text-white justify-content-center">
-                            @for($row=1; $row<=$hall->rows; $row++)
+                            @for($row=1; $row<=$seance->rows; $row++)
 
                                 <div class="col-form-label-sm justify-content-center">
-                                    @for($column=1; $column<=$hall->columns; $column++)
-                                        <input type="checkbox" name="seat[]" class="btn-check text-center" id="seat{{ $row }},{{ $column }}" value='{"row": "{{ $row }}", "column": "{{ $column }}"}' {{ ($reservation_controller->check_reservation($request['seance_id'], $row, $column) == true)? 'disabled': ''}}>
-                                        <label class="btn btn-outline-primary {{ ($reservation_controller->check_reservation($request['seance_id'], $row, $column) == true)? 'btn-danger': 'btn-light'}}" style="height: 45px; width: 45px; font-size: small" for="seat{{ $row }},{{ $column }}">
+                                    @for($column=1; $column<=$seance->columns; $column++)
+                                        <input type="checkbox" name="seat[]" class="btn-check text-center" id="seat{{ $row }},{{ $column }}" value='{"row": "{{ $row }}", "column": "{{ $column }}"}' {{ ($reservation_controller->check_reservation($seance->id, $row, $column) == true)? 'disabled': ''}}>
+                                        <label class="btn btn-outline-primary {{ ($reservation_controller->check_reservation($seance->id, $row, $column) == true)? 'btn-danger': 'btn-light'}}" style="height: 45px; width: 45px; font-size: small" for="seat{{ $row }},{{ $column }}">
                                             {{ $row_name[$row-1] }} {{ ($column>=10)? $column: '0'.$column }}
                                         </label>
                                     @endfor

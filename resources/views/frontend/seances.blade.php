@@ -53,7 +53,7 @@
                         @endif
 
                         <div>
-                            <a href="{{ route('reservation', $seance->id) }}">{{ \Carbon\Carbon::parse($seance->time)->format('h:i') }}</a><br>
+                            <a href="{{ route('reservation.seat_select', $seance->id) }}">{{ \Carbon\Carbon::parse($seance->time)->format('h:i') }}</a><br>
                         </div>
                         @php
                             $previouseValue=$seance->title;

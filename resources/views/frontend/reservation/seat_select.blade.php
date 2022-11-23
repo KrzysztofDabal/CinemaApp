@@ -8,12 +8,12 @@
 
             <div class="card-header">
                 Select Seat
-                <a href="{{ route('admin/add_reservation') }}" class="btn btn-primary btn-sm float-end"><- Back</a>
+                <a href="{{ route('seances') }}" class="btn btn-primary btn-sm float-end"><- Back</a>
             </div>
 
 
             <div class="card-body text-center">
-                <form method="POST" action="{{ route('add_reservation') }}">
+                <form method="POST" action="{{ route('reservation.check_user') }}">
                     @csrf
 
                     <input type="number" name="seance_id" id="seance_id" value="{{ $seance->id }}" hidden>
