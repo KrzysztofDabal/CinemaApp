@@ -63,8 +63,6 @@ class UserReservationController extends Controller
         else {
             $this->set_reservation_cookie($request);
 
-//            $this->guest_user($request);
-//            return redirect()->route('home');
             return view('frontend.reservation.user_form');
         }
     }

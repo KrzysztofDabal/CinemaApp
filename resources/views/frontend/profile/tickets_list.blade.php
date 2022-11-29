@@ -20,7 +20,7 @@
                         @endif
 
                         @foreach($tickets as $ticket)
-                                {{ $ticket->id }} <br>
+                                {{ $ticket->title }} {{ $ticket->name }} {{ $ticket->surname }} {{ $ticket->hallName }} {{ $ticket->date }} {{ $ticket->time }}<br>
                         @endforeach
 
                     </div>
