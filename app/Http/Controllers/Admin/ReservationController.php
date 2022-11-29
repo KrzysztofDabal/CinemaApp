@@ -41,7 +41,7 @@ class ReservationController extends Controller
         if(Auth::check()){
             if (empty($user)) {
                 $user = Auth::user();
-            }else
+            }
             $user_data = [
                 'user_id' => $user->id,
                 'name' => $user->name,

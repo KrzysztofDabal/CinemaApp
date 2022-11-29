@@ -4,16 +4,25 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Frontend\UserReservationController;
 use App\Http\Controllers\Frontend\GoogleController;
+use App\Http\Controllers\Frontend\ProfileController;
+use App\Http\Controllers\Frontend\ProfileReservationsController;
 
 
 Auth::routes();
 
 Route::get('/', [FrontendController::class, 'index'])->name('home');
 Route::get('/home', [FrontendController::class, 'index']);
-Route::get('/dashboard', [FrontendController::class, 'dashboard'])->name('profile');
 Route::get('/about', [FrontendController::class, 'about'])->name('about');
 Route::get('/regulamin', [FrontendController::class, 'regulamin'])->name('regulamin');
 
+Route::prefix('/profile')->group(function (){
+    Route::get('/', [ProfileController::class, 'dashboard'])->name('profile.dashboard');
+    Route::get('/data', [ProfileController::class, 'profile_data'])->name('profile.data');
+    Route::post('/data', [ProfileController::class, 'profile_update_form'])->name('profile.update_form');
+    Route::post('/post', [ProfileController::class, 'profile_update'])->name('profile.update');
+
+    Route::get('/tickets', [ProfileReservationsController::class, 'tickets_list'])->name('profile.tickets');
+});
 Route::prefix('/movie')->group(function (){
     Route::get('/', [FrontendController::class, 'movies'])->name('movies');
     Route::get('/{movie_id}', [FrontendController::class, 'show_movie'])->name('show_movie');
@@ -25,7 +34,6 @@ Route::prefix('/seances')->group(function (){
 Route::prefix('/reservation')->group(function (){
     Route::get('/{seance_id}', [UserReservationController::class, 'seat_select'])->name('reservation.seat_select');
     Route::post('/user_form', [UserReservationController::class, 'user_form'])->name('reservation.user_form');
-//    Route::post('/', [UserReservationController::class, 'create_user_reservation'])->name('reservation.add');
     Route::post('/check_user', [UserReservationController::class, 'check_user'])->name('reservation.check_user');
     Route::post('/guest', [UserReservationController::class, 'guest_user'])->name('reservation.guest_add');
 });

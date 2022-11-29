@@ -6,10 +6,10 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        {{ __('Dashboard') }}
+                        {{ __('Profil') }}
                         <div class="float-end">
-                            <a href="{{ route('profile.data') }}" class="btn btn-primary btn-sm float">Profil</a>
-                            <a href="{{ route('profile.tickets') }}" class="btn btn-primary btn-sm float">Bilety</a>
+                            <a href="{{ route('profile.dashboard') }}" class="btn-secondary btn btn-sm float"><-Wróć</a>
+                            <a href="{{ route('profile.update') }}" class="btn btn-primary btn-sm float">Edytuj</a>
                         </div>
                     </div>
 
@@ -20,7 +20,11 @@
                             </div>
                         @endif
 
-                        Śiema mordo
+                            {{ $user->id }}<br>
+                            {{ $user->name }} {{ $user->surname }}<br>
+                            {{ $user->email }}<br>
+                            {{ $user->phone_number }}<br>
+
                     </div>
                 </div>
             </div>

@@ -20,10 +20,6 @@ class FrontendController extends Controller
         return view('frontend.index', compact('movies', 'movies_rating', 'movies_title'));
     }
 
-    public function dashboard(){
-        return view('frontend.profile.dashboard');
-    }
-
     public function seances(Request $request){
         if($request->input('seance_date') == null){
             $seance_date = Carbon::now()->format('d.m');

@@ -6,10 +6,9 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        {{ __('Dashboard') }}
+                        {{ __('Tickets List') }}
                         <div class="float-end">
-                            <a href="{{ route('profile.data') }}" class="btn btn-primary btn-sm float">Profil</a>
-                            <a href="{{ route('profile.tickets') }}" class="btn btn-primary btn-sm float">Bilety</a>
+                            <a href="{{ route('profile.dashboard') }}" class="btn-secondary btn btn-sm float"><-Wróć</a>
                         </div>
                     </div>
 
@@ -20,7 +19,10 @@
                             </div>
                         @endif
 
-                        Śiema mordo
+                        @foreach($tickets as $ticket)
+                                {{ $ticket->id }} <br>
+                        @endforeach
+
                     </div>
                 </div>
             </div>

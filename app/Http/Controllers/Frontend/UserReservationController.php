@@ -42,13 +42,6 @@ class UserReservationController extends Controller
         $cookie = $this->get_reservation_cookie($request);
         $request->merge(["seance_id"=>$cookie['seance_id']]);
         $seats = $cookie['seat'];
-//        $user_data = [
-//            'user_id' => null,
-//            'name' => 'Mariusz',
-//            'surname' => 'Pudzianowski',
-//            'email' => 'pudziankoks@gmail.com',
-//            'phone_number' => 345345345
-//        ];
         $user = app($this->reservation_controller)->user_data($request);
         foreach ($seats as $seat){
             $decode_seat = app($this->reservation_controller)->array_from_decode_json($seat);
