@@ -25,9 +25,23 @@ class GetReservationByController extends Controller
             ->orderBy('movies.title')
             ->orderBy('seances.date')
             ->where('reservations.user_id', 'LIKE', $user_id)
-            ->get(['reservations.*', 'seances.*', 'movies.title', 'movies.image', 'halls.name as hallName']);
+            ->get(['seances.*','reservations.*', 'movies.title', 'movies.image', 'halls.name as hallName']);
         if($reservations){
             return $reservations;
+        }
+        else{
+            return null;
+        }
+    }
+    public function get_reservation_by_id($reservation_id){
+        $reservation = Reservation::where('reservations.id', $reservation_id)
+            ->join('seances', 'seances.id', '=','reservations.seance_id')
+            ->join('movies', 'movies.id', '=','seances.movie_id')
+            ->join('halls', 'halls.id', '=','seances.hall_id')
+            ->first(['seances.*','reservations.*', 'movies.title', 'movies.image', 'halls.name as hallName']);
+
+        if($reservation){
+            return $reservation;
         }
         else{
             return null;

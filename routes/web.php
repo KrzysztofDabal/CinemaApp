@@ -22,6 +22,7 @@ Route::prefix('/profile')->group(function (){
     Route::post('/post', [ProfileController::class, 'profile_update'])->name('profile.update');
 
     Route::get('/tickets', [ProfileReservationsController::class, 'tickets_list'])->name('profile.tickets');
+    Route::get('/tickets/{ticket_id}', [ProfileReservationsController::class, 'ticket_show'])->name('profile.ticket_show');
 });
 Route::prefix('/movie')->group(function (){
     Route::get('/', [FrontendController::class, 'movies'])->name('movies');

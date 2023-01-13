@@ -8,7 +8,7 @@
                     <div class="card-header">
                         {{ __('Tickets List') }}
                         <div class="float-end">
-                            <a href="{{ route('profile.dashboard') }}" class="btn-secondary btn btn-sm float"><-Wróć</a>
+                            <a href="{{ route('profile.tickets') }}" class="btn-secondary btn btn-sm float"><-Wróć</a>
                         </div>
                     </div>
 
@@ -19,11 +19,12 @@
                             </div>
                         @endif
 
-                            @foreach($reservations as $reservation)
-                                <a href="{{ route('profile.ticket_show', $reservation->id) }}" class="btn btn-sm btn-primary">
-                                    Film: {{ $reservation->title }}Data: {{ $reservation->date }} Godzina: {{ \Carbon\Carbon::parse($reservation->time)->format('H:i') }}Status<br>
-                                </a>
-                            @endforeach
+                            Tytuł: {{ $reservation->title }}<br>
+                            Imię: {{ $reservation->name }} {{ $reservation->surname }}<br>
+                            Sala: {{ $reservation->hallName }}<br>
+                            Data: {{ $reservation->date }} Godzina: {{ \Carbon\Carbon::parse($reservation->time)->format('H:i') }}<br>
+                            Rząd: {{ $reservation->seat_row }} Miejsce: {{ $reservation->seat_column }}<br>
+
 
                     </div>
                 </div>
