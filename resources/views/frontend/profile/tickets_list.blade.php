@@ -20,8 +20,8 @@
                         @endif
 
                             @foreach($reservations as $reservation)
-                                <a href="{{ route('profile.ticket_show', $reservation->id) }}" class="btn btn-sm btn-primary">
-                                    Film: {{ $reservation->title }}Data: {{ $reservation->date }} Godzina: {{ \Carbon\Carbon::parse($reservation->time)->format('H:i') }}Status<br>
+                                <a href="{{ route('profile.ticket_show', $reservation->id) }}" class="btn btn-sm {{ ($reservation->paid==0)? 'btn-danger' : 'btn-success' }}">
+                                    Film: {{ $reservation->title }}Data: {{ $reservation->date }} Godzina: {{ \Carbon\Carbon::parse($reservation->time)->format('H:i') }}Status: {{ ($reservation->paid==0)? 'nieoplacone' : 'opłacone' }}<br>
                                 </a>
                             @endforeach
 

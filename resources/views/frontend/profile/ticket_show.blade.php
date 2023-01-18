@@ -24,8 +24,9 @@
                             Sala: {{ $reservation->hallName }}<br>
                             Data: {{ $reservation->date }} Godzina: {{ \Carbon\Carbon::parse($reservation->time)->format('H:i') }}<br>
                             Rząd: {{ $reservation->seat_row }} Miejsce: {{ $reservation->seat_column }}<br>
+                            Status: {{ ($reservation->paid==0)? 'nieopłacone' : 'opłacone' }}<br>
 
-
+                        <button class="btn btn-secondary">Zapłać</button>
                     </div>
                 </div>
             </div>
