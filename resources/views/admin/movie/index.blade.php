@@ -47,7 +47,7 @@
                             <td>{{ $movie->description }}</td>
                             <td>{{ $movie->length }}min</td>
                             <td>{{ $movie->rating }}</td>
-                            <td>{{ $movie->category }}</td>
+                            <td>@foreach($movie->category as $category) {{ $category }}<br> @endforeach</td>
                             <td><a href="{{ route('admin/edit_movie', $movie->id) }}" class="btn btn-secondary btn-sm">Edit Movie</a></td>
                             <td><a href="{{ route('admin/delete_movie', $movie->id) }}" class="btn btn-danger btn-sm">Delete Movie</a></td>
                         </tr>

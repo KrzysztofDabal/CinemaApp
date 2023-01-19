@@ -16,6 +16,10 @@ class ReservationController extends Controller
 {
     public  $row_name = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','R','S','T'];
 
+    public function array_from_decode_json($json){
+        $seat = json_decode($json, true);
+        return $seat;
+    }
 
     public function seat_name($seat){
         $json = json_decode($seat, true);
@@ -24,11 +28,14 @@ class ReservationController extends Controller
         return $seat_name;
     }
 
-    public function check_reservation($seance_id, $row, $column){
-        if(Reservation::where('seance_id', '=', $seance_id)->where('seat_row', '=', $row)->where('seat_column', '=', $column)->exists()){
-            return true;
+    public function check_reservation($seance_id, $seats){
+        $exist = false;
+        foreach ($seats as $seat){
+            $decode_seat = $this->array_from_decode_json($seat);
+            if(Reservation::where('seance_id', $seance_id)->where('seat_row', $decode_seat['row'])->where('seat_column', $decode_seat['column'])->exists()){$exist=false;}
+            else{$exist=true;}
         }
-        return false;
+        return $exist;
     }
 
     public function index(){
@@ -112,13 +119,12 @@ class ReservationController extends Controller
         return view('admin.reservation.select_seat_edit', compact('hall', 'row_name', 'request', 'reservation'));
     }
 
-    public function array_from_decode_json($json){
-        $seat = json_decode($json, true);
-        return $seat;
-    }
-
     public function create_reservation (Request $request){
         $seats = $request->input('seat');
+        if($this->check_reservation($request['seance_id'], $seats)==true){
+            return redirect()->route('admin/select_seat', $request['seance_id'])->with('message', 'The seat is already taken');
+        }
+
         $user_data = $this->user_data($request, User::find($request->user_id));
         foreach ($seats as $seat){
             $decode_seat = $this->array_from_decode_json($seat);

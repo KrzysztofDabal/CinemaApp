@@ -26,7 +26,7 @@ class MovieSeeder extends Seeder
             'description' => 'Kiedy cały świat dowiaduje się, że pod maską Spider Mana skrywa się Peter Parker, superbohater decyduje się zwrócić o pomoc do Doktora Strange\'a.',
             'image' => 'test/spiderman.jpg',
             'rating' => '80',
-            'category' => '{"0":"Akcja","1":"Sci-Fi"}',
+            'category' => json_encode(['Akcja', 'Sci-Fi']),
         ]);
         DB::table('movies')->insert([
             'title' => 'Skazany na Showshakn',
@@ -37,7 +37,7 @@ class MovieSeeder extends Seeder
             'description' => 'Adaptacja opowiadania Stephena Kinga. Niesłusznie skazany na dożywocie bankier, stara się przetrwać w brutalnym, więziennym świecie.',
             'image' => 'test/shawshank.jpg',
             'rating' => '88',
-            'category' => '{"0":"Dramat"}',
+            'category' => json_encode(['Dramat']),
         ]);
         DB::table('movies')->insert([
             'title' => 'Cars',
@@ -48,7 +48,7 @@ class MovieSeeder extends Seeder
             'description' => 'Kiedy cały świat dowiaduje się, że pod maską Spider Mana skrywa się Peter Parker, superbohater decyduje się zwrócić o pomoc do Doktora Strange\'a.',
             'image' => 'test/cars.jpg',
             'rating' => '100',
-            'category' => '{"0":"Animacja","1":"Komedia"}',
+            'category' => json_encode(['Animacja', 'Komedia']),
         ]);
     }
 }

@@ -123,17 +123,21 @@
                     </div>
 
                     <div class="row mb-3">
-                        <label for="category" class="col-md-4 col-form-label text-md-end">{{ __('Category') }}</label>
+                        <label for="categories" class="col-md-4 col-form-label text-md-end">{{ __('Category') }}</label>
 
-                        <div class="col-md-6">
-                            <input id="category" type="text" class="form-control @error('category') is-invalid @enderror" name="category" value="{{ old('category') }}" required autocomplete="category" autofocus>
-
-                            @error('category')
-                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                            @enderror
+                        <div class="col-md-1">
+                            {{ __('Akcja') }}<input id="categories[0]" type="checkbox" class="form-check @error('action') is-invalid @enderror" name="categories[]" value="Akcja"  autocomplete="action" autofocus>
                         </div>
+                        <div class="col-md-1">
+                            {{ __('Fantasy') }}<input id="categories[1]" type="checkbox" class="form-check @error('fantasy') is-invalid @enderror" name="categories[]" value="Fantasy"  autocomplete="fantasy" autofocus>
+                        </div>
+                        <div class="col-md-1">
+                            {{ __('Sci_Fi') }}<input id="categories[2]" type="checkbox" class="form-check @error('sci_fi') is-invalid @enderror" name="categories[]" value="Sci_Fi"  autocomplete="sci_fi" autofocus>
+                        </div>
+                        <div class="col-md-1">
+                            {{ __('Komedia') }}<input id="categories[3]" type="checkbox" class="form-check @error('comedy') is-invalid @enderror" name="categories[]" value="Komedia"  autocomplete="comedy" autofocus>
+                        </div>
+
                     </div>
 
                     <div class="row mb-0">

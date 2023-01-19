@@ -61,7 +61,7 @@ Route::prefix('/admin')->middleware(['auth', 'admin'])->group(function() {
     Route::prefix('/movie')->group(function() {
         Route::get('/', [App\Http\Controllers\Admin\MovieController::class, 'index'])->name('admin/movie');
         Route::get('/add_movie', [App\Http\Controllers\Admin\MovieController::class, 'create'])->name('admin/add_movie');
-        Route::post('/add_movie', [App\Http\Controllers\Admin\MovieController::class, 'store'])->name('admin/add_movie');
+        Route::post('/add_movie', [App\Http\Controllers\Admin\MovieController::class, 'store_request'])->name('admin/add_movie');
         Route::get('/edit_movie/{movie_id}', [App\Http\Controllers\Admin\MovieController::class, 'edit'])->name('admin/edit_movie');
         Route::put('/edit_movie/{movie_id}', [App\Http\Controllers\Admin\MovieController::class, 'update'])->name('admin/edit_movie');
         Route::get('/delete_movie/{movie_id}', [App\Http\Controllers\Admin\MovieController::class, 'delete'])->name('admin/delete_movie');

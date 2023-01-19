@@ -69,6 +69,9 @@ class UserReservationController extends Controller
 
     public function create_reservation (ReservationRequest $request, $user){
         $seats = $request->input('seat');
+        if(app($this->reservation_controller)->check_reservation($request['seance_id'], $seats) == true){
+            return redirect()->route('reservation.seat_select', $request['seance_id'])->with('message', 'The seat is already taken');
+        }
         foreach ($seats as $seat){
             $decode_seat = app($this->reservation_controller)->array_from_decode_json($seat);
             $array = app($this->reservation_controller)->reservation_array($request, $user, $decode_seat);

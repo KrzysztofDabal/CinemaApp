@@ -32,7 +32,7 @@ class MovieFormRequest extends FormRequest
             'description' => ['required', 'string'],
             'image' => ['nullable', 'mimes:jpg, jpeg, png'],
             'rating' => ['required', 'integer', 'max:100'],
-            'category' => ['nullable', 'string', 'max:100']
+            'category' => ['nullable', 'max:100']
         ];
 
         return $rules;

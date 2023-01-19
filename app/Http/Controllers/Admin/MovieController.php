@@ -14,6 +14,9 @@ class MovieController extends Controller
 
     public function index(){
         $movies = Movie::all();
+        foreach ($movies as $movie){
+            $movie['category'] = json_decode($movie['category'],true);
+        }
         $image_route = $this->image_route;
         return view('admin.movie.index', compact('movies', 'image_route'));
     }
@@ -46,14 +49,20 @@ class MovieController extends Controller
         return $request;
     }
 
-    public function store(MovieFormRequest $request){
-//        $data = $request->validate();
+    public function store_request(MovieFormRequest $request){
         $this->save_image($request);
         $slug = Str::slug($request['title']);
-        $request->request->add(['slug' => $slug]);
-        Movie::create($request->all());
+        $category = json_encode($request['categories']);
+        $request->request->add(['slug' => $slug, 'category' => $category]);
 
+        $this->store($request);
         return redirect()->route('admin/movie')->with('message', 'New Movie created');
+    }
+
+    public function store(MovieFormRequest $request){
+//        $data = $request->validate();
+
+        return Movie::create($request->all());
     }
 
     public function update(MovieFormRequest $request, $movie_id){

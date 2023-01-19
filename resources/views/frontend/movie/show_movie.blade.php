@@ -14,7 +14,7 @@
                     Description: {{ $movie->description }}<br>
                     Length: {{ $movie->length }}min<br>
                     Rating: {{ $movie->rating }}<br>
-                    Category: {{ $movie->category }}<br>
+                    Category:@foreach($movie->category as $category) {{ $category }}<br> @endforeach<br>
                 </div>
 
                 <a href="{{ url()->previous() }}" class="btn btn-danger">Previous</a>
