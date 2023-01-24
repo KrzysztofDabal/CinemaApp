@@ -97,4 +97,3 @@ Route::prefix('/admin')->middleware(['auth', 'admin'])->group(function() {
         Route::get('/delete_reservation/{reservation_id}', [App\Http\Controllers\Admin\ReservationController::class, 'delete'])->name('admin/delete_reservation');
     });
 });
-

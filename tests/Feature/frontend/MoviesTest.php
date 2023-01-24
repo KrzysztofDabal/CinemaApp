@@ -14,23 +14,44 @@ class MoviesTest extends TestCase
      *
      * @return void
      */
-    public function test_the_admin_route_can_be_accessed()
+    public function test_movie_route()
     {
-        $seance = Movie::create([
-            'title' => 'Test movie title',
-            'slug' => Str::slug('Test movie title'),
-            'director' => 'Test director',
-            'scriptwriter' => 'Test scriptwriter',
-            'length' => '150',
-            'description' => 'Lorem ipsum czy cos',
-            'image' => 'test/spiderman.jpg',
-            'rating' => '80',
-            'category' => json_encode(['Dramat']),
-        ]);
+        $response = $this->get('/movie/');
 
-        $response = $this->get('/movie/'. $seance->id);
+        $response->assertStatus(200);
+    }
+
+    public function test_movie_add()
+    {
+        $movie = Movie::factory()->create();
+
+        if($movie){
+            $response = true;
+        }else{
+            $response = false;
+        }
+
+        $this->assertTrue($response);
+    }
+
+    public function test_movie_show_route()
+    {
+        $movie = Movie::where('title', 'Test movie title')->first();
+
+        $response = $this->get('/movie/'. $movie->id);
 
         $response->assertStatus(200)
             ->assertSeeText('Test movie title');
+    }
+
+    public function test_movie_delete()
+    {
+        $movie = Movie::where('title', 'Test movie title')->first();
+
+        if($movie){
+            $movie->delete();
+        }
+
+        $this->assertTrue(true);
     }
 }

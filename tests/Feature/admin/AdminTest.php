@@ -12,10 +12,11 @@ class AdminTest extends TestCase
      *
      * @return void
      */
-    public function test_the_admin_route_can_be_accessed()
+    public function test_user_can_access_admin_panel()
     {
         $response = $this->get('/admin');
 
-        $response->assertStatus(302);
+        $response->assertStatus(302)
+            ->assertLocation('/login');
     }
 }

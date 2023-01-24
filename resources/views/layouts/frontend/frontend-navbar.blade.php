@@ -21,13 +21,16 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('seances') }}">Seances</a>
+                    <a class="nav-link" href="{{ route('seances') }}">Repertuar</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('movies') }}">Movies</a>
+                    <a class="nav-link" href="{{ route('movies') }}">Filmy</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('about') }}">About Us</a>
+                    <a class="nav-link" href="{{ route('movies') }}">Cennik</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('about') }}">O nas</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('regulamin') }}">Regulamin</a>

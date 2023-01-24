@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12 text-center">
                 <h1>
-                    Seances na dzień {{ $seance_date }}
+                    Repertuar {{ $seance_date }}
                 </h1>
                 @php
                     $period_start = \Carbon\Carbon::now();
@@ -44,7 +44,9 @@
                             @endif
                             <th>
                                 <img src="{{  asset($image_route.$seance->image) }}" style="width: 140px; height: 200px;" alt="{{  $seance->title }}"/><br>
-                                {{ $seance->title }}
+                                <a href="{{ route('show_movie', $seance->movie_id) }}">
+                                    {{ $seance->title }}
+                                </a>
                             </th>
                         @endif
 
