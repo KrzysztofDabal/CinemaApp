@@ -32,8 +32,21 @@ class ReservationController extends Controller
         $exist = false;
         foreach ($seats as $seat){
             $decode_seat = $this->array_from_decode_json($seat);
-            if(Reservation::where('seance_id', $seance_id)->where('seat_row', $decode_seat['row'])->where('seat_column', $decode_seat['column'])->exists()){$exist=false;}
-            else{$exist=true;}
+            if(Reservation::where('seance_id', $seance_id)->where('seat_row', $decode_seat['row'])->where('seat_column', $decode_seat['column'])->exists()){
+                $exist=true;
+            }
+            else{
+                $exist=false;
+            }
+        }
+        return $exist;
+    }
+    public function check_seat($seance_id, $row, $column){
+        if(Reservation::where('seance_id', $seance_id)->where('seat_row', $row)->where('seat_column', $column)->exists()){
+            $exist=true;
+        }
+        else{
+            $exist=false;
         }
         return $exist;
     }
@@ -79,7 +92,6 @@ class ReservationController extends Controller
             'surname' => $user['surname'],
             'email' => $user['email'],
             'phone_number' => $user['phone_number']
-
         ];
         return $array;
     }

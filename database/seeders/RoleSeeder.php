@@ -19,10 +19,10 @@ class RoleSeeder extends Seeder
             'name' => 'user',
         ]);
         DB::table('roles')->insert([
-            'name' => 'worker',
+            'name' => 'admin',
         ]);
         DB::table('roles')->insert([
-            'name' => 'admin',
+            'name' => 'head admin',
         ]);
     }
 }

@@ -28,8 +28,8 @@
 
                                 <div class="col-form-label-sm justify-content-center">
                                     @for($column=1; $column<=$seance->columns; $column++)
-                                        <input type="checkbox" name="seat[]" class="btn-check text-center" id="seat{{ $row }},{{ $column }}" value='{"row": "{{ $row }}", "column": "{{ $column }}"}' {{ ($reservation_controller->check_reservation($seance->id, $row, $column) == true)? 'disabled': ''}}>
-                                        <label class="btn btn-outline-primary {{ ($reservation_controller->check_reservation($seance->id, $row, $column) == true)? 'btn-danger': 'btn-light'}}" style="height: 45px; width: 45px; font-size: small" for="seat{{ $row }},{{ $column }}">
+                                        <input type="checkbox" name="seat[]" class="btn-check text-center" id="seat{{ $row }},{{ $column }}" value='{"row": "{{ $row }}", "column": "{{ $column }}"}' {{ ($reservation_controller->check_seat($seance->id, $row, $column) == true)? 'disabled': ''}}>
+                                        <label class="btn btn-outline-primary {{ ($reservation_controller->check_seat($seance->id, $row, $column) == true)? 'btn-danger': 'btn-light'}}" style="height: 45px; width: 45px; font-size: small" for="seat{{ $row }},{{ $column }}">
                                             {{ $row_name[$row-1] }} {{ ($column>=10)? $column: '0'.$column }}
                                         </label>
                                     @endfor

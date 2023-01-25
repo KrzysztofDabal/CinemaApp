@@ -21,7 +21,10 @@ class HallController extends Controller
 
     public function edit($hall_id){
         $hall = Hall::find($hall_id);
-        return view('admin.hall.edit', compact('hall'));
+        if($hall){
+            return view('admin.hall.edit', compact('hall'));
+        }
+        return redirect()->route('admin/hall')->with('message', 'Hall doesn\'t exist');
     }
 
     public function store(HallRequest $request){
@@ -42,8 +45,13 @@ class HallController extends Controller
     }
 
     public function delete($hall_id){
-        Hall::destroy($hall_id);
+        $hall = Hall::find($hall_id);
+        if($hall){
+            Hall::destroy($hall_id);
 
-        return redirect()->route('admin/hall')->with('message', 'Hall deleted');
+            return redirect()->route('admin/hall')->with('message', 'Hall deleted');
+        }
+
+        return redirect()->route('admin/hall')->with('message', 'Hall doesn\'t exist');
     }
 }

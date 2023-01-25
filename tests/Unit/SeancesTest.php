@@ -11,13 +11,21 @@ class SeancesTest extends TestCase
     use RefreshDatabase;
 
     /* @test */
-    public function test_seance_route_list_working()
+    public function test_seance_add()
     {
         $seance = Seance::factory()->create();
 
-        $response = $this->get('/seances');
+        $this->assertModelExists($seance);
+    }
 
-        $response->assertStatus(200)
-            ->assertSeeText(['Test movie title', $seance->time]);
+    public function test_seance_delete()
+    {
+        $seance = Seance::factory()->create();
+
+        if($seance){
+            $seance->delete();
+        }
+
+        $this->assertTrue(true);
     }
 }

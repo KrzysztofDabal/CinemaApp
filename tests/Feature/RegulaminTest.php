@@ -2,7 +2,7 @@
 
 
 // use Illuminate\Foundation\Testing\RefreshDatabase;
-namespace Tests\Feature\frontend;
+namespace Tests\Feature;
 
 use Tests\TestCase;
 

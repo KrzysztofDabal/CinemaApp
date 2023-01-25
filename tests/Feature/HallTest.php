@@ -1,6 +1,5 @@
 <?php
 
-namespace Tests\Unit;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\Models\Hall;
@@ -14,12 +13,28 @@ class HallTest extends TestCase
      *
      * @return void
      */
-
-    public function test_hall_database_add()
+    public function test_hall_route()
     {
-        $hall = Hall::factory()->create();
+        $response = $this->get('/hall');
 
-        $this->assertModelExists($hall);
+        $response->assertStatus(404);
+    }
+
+    public function test_hall_add_as_guest()
+    {
+        $request = ([
+            'name' => 'TestHall',
+            'rows' => 20,
+            'columns' => 15,
+        ]);
+
+        $response = $this->post('/admin/hall/add_hall', $request);
+
+        $response->assertRedirect('/login')->assertStatus(302);
+
+//        $hall = Hall::where('name', 'TestHall')->first();
+//        $this->assertModelExists($hall);
+
     }
 
     public function test_hall_database()

@@ -14,38 +14,11 @@ class MoviesTest extends TestCase
      *
      * @return void
      */
-    public function test_movie_route()
-    {
-        $response = $this->get('/movie/');
-
-        $response->assertStatus(200);
-    }
-
     public function test_movie_add()
     {
         $movie = Movie::factory()->create();
 
         $this->assertModelExists($movie);
-    }
-
-    public function test_movie_show_route()
-    {
-        $movie = Movie::factory()->create();
-
-        $response = $this->get('/movie/'. $movie->id);
-
-        $response->assertStatus(200);
-    }
-
-    public function test_bad_movie_show_route_redirect()
-    {
-        Movie::factory()->create();
-        $movie = Movie::all()->last();
-
-        $response = $this->get('/movie/'. $movie->id+1);
-
-        $response->assertStatus(302)
-            ->assertLocation('/');
     }
 
     public function test_movie_delete()

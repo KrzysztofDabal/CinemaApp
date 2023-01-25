@@ -1,14 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
     <div class="container">
-{{--        @if(!Auth::guest() && Auth::user()->role >= 2)--}}
-{{--            <a class="navbar-brand" href="{{ route('admin/profile') }}">--}}
-{{--                {{ config('app.name', 'Laravel') }}--}}
-{{--            </a>--}}
-{{--        @else--}}
-{{--            <a class="navbar-brand" href="{{ route('home') }}">--}}
-{{--                {{ config('app.name', 'Laravel') }}--}}
-{{--            </a>--}}
-{{--        @endif--}}
 
             <a class="navbar-brand" href="{{ route(!Auth::guest() && Auth::user()->role >= 2? 'admin/profile': 'home') }}">
                 {{ config('app.name', 'Laravel') }}
