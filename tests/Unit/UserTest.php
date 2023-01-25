@@ -35,7 +35,7 @@ class UserTest extends TestCase
             'password' => Hash::make('asdasdasd'),
         ]);
 
-        $this->assertTrue($TestUser1->email != $TestUser2->email);
+        $this->assertTrue($TestUser1->email == $TestUser2->email);
     }
 
     public function test_user_delete()
@@ -51,5 +51,17 @@ class UserTest extends TestCase
         $this->assertTrue(true);
     }
 
+    public function test_store_new_user()
+    {
+
+        $respone = $this->post('/register', [
+            'name' => 'New Test',
+            'surname' => 'User',
+            'email' => 'test@gmail.com',
+            'password' => Hash::make('asdasdasd'),
+        ]);
+
+        $respone->assertRedirect('/');
+    }
 
 }

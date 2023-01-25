@@ -39,8 +39,13 @@ class FrontendController extends Controller
 
     public function show_movie($movie_id){
         $movie = Movie::find($movie_id);
+        if($movie){
             $movie['category'] = json_decode($movie['category'],true);
-        return view('frontend.movie.show_movie', compact('movie'));
+            return view('frontend.movie.show_movie', compact('movie'));
+        }
+        else{
+            return redirect('/');
+        }
     }
 
     public function about(){

@@ -2,11 +2,13 @@
 
 namespace Tests\Unit;
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\Models\Hall;
 use Illuminate\Support\Str;
 use Tests\TestCase;
 class HallTest extends TestCase
 {
+    use RefreshDatabase;
     /**
      * A basic unit test example.
      *
@@ -21,22 +23,15 @@ class HallTest extends TestCase
 
     public function test_hall_add()
     {
-//        $hall = Hall::factory()->create();
+        $hall = Hall::factory()->create();
 
-        $hall = Hall::create([
-            'name' => 'Test hall',
-            'slug' => Str::slug('name'),
-            'rows' => 10,
-            'columns' => 10,
-        ]);
+        $this->assertModelExists($hall);
+    }
 
-        if($hall){
-            $response = true;
-        }else{
-            $response = false;
-        }
+    public function test_hall_database()
+    {
 
-        $this->assertTrue($response);
+        $this->assertDatabaseMissing('halls', ['name' => 'Hall']);
     }
 
     public function test_hall_delete()
