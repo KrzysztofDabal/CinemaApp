@@ -7,7 +7,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Hash;
 use Tests\TestCase;
 
-class AdminPanelAccessTest extends TestCase
+class HallAdPanAccessTest extends TestCase
 {
     use RefreshDatabase;
     /**
@@ -15,21 +15,21 @@ class AdminPanelAccessTest extends TestCase
      *
      * @return void
      */
-    public function test_admin_panel_access_as_guest()
+    public function test_hall_admin_panel_access_as_guest()
     {
-        $response = $this->get('/admin');
+        $response = $this->get('/admin/hall');
 
         $response->assertStatus(302)
             ->assertLocation('/login');
     }
 
-    public function test_admin_panel_access_as_admin()
+    public function test_hall_admin_panel_access_as_admin()
     {
         $user = User::factory()->create();
 
         $this->actingAs($user);
 
-        $response = $this->get('/admin');
+        $response = $this->get('/admin/hall');
 
         $response->assertStatus(200);
     }
