@@ -2,21 +2,21 @@
 
 
 // use Illuminate\Foundation\Testing\RefreshDatabase;
-namespace Tests\Feature;
+namespace Tests\Feature\frontend;
 
 use Tests\TestCase;
 
-class RegulaminTest extends TestCase
+class HomePageTest extends TestCase
 {
     /**
      * A basic test example.
      *
      * @return void
      */
-    public function test_the_regulamin_route_can_be_accessed()
+    public function test_home_page_route()
     {
 
-        $response = $this->get('/regulamin');
+        $response = $this->get('/');
 
         $response->assertStatus(200);
     }

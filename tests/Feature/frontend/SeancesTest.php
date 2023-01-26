@@ -1,6 +1,8 @@
 <?php
 
 
+namespace Tests\Feature\frontend;
+
 use App\Models\Seance;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;

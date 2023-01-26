@@ -1,13 +1,13 @@
 <?php
 
-namespace AdminPanel;
+namespace AdminPanelAccess;
 
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Hash;
 use Tests\TestCase;
 
-class HallAdPanAccessTest extends TestCase
+class AdminPanelAccessTest extends TestCase
 {
     use RefreshDatabase;
     /**
@@ -15,33 +15,33 @@ class HallAdPanAccessTest extends TestCase
      *
      * @return void
      */
-    public function test_hall_admin_panel_access_as_guest()
+    public function test_admin_panel_access_as_guest()
     {
-        $response = $this->get('/admin/hall');
+        $response = $this->get('/admin');
 
         $response->assertStatus(302)
             ->assertLocation('/login');
     }
 
-    public function test_hall_admin_panel_access_as_user()
+    public function test_admin_panel_access_as_user()
     {
         $user = User::factory()->create();
 
         $this->actingAs($user);
 
-        $response = $this->get('/admin/hall');
+        $response = $this->get('/admin');
 
         $response->assertStatus(302)
             ->assertLocation('/');
     }
 
-    public function test_hall_admin_panel_access_as_admin()
+    public function test_admin_panel_access_as_admin()
     {
         $user = User::factory(['role' => 2])->create();
 
         $this->actingAs($user);
 
-        $response = $this->get('/admin/hall');
+        $response = $this->get('/admin');
 
         $response->assertStatus(200);
     }
