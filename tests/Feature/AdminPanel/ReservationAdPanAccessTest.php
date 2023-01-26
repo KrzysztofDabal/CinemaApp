@@ -23,9 +23,21 @@ class ReservationAdPanAccessTest extends TestCase
             ->assertLocation('/login');
     }
 
-    public function test_reservation_admin_panel_access_as_admin()
+    public function test_reservation_admin_panel_access_as_user()
     {
         $user = User::factory()->create();
+
+        $this->actingAs($user);
+
+        $response = $this->get('/admin/reservation');
+
+        $response->assertStatus(302)
+            ->assertLocation('/');
+    }
+
+    public function test_reservation_admin_panel_access_as_admin()
+    {
+        $user = User::factory(['role' => 2])->create();
 
         $this->actingAs($user);
 

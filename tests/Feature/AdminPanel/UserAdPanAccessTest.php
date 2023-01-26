@@ -23,9 +23,21 @@ class UserAdPanAccessTest extends TestCase
             ->assertLocation('/login');
     }
 
-    public function test_user_admin_panel_access_as_admin()
+    public function test_user_admin_panel_access_as_user()
     {
         $user = User::factory()->create();
+
+        $this->actingAs($user);
+
+        $response = $this->get('/admin/user');
+
+        $response->assertStatus(302)
+            ->assertLocation('/');
+    }
+
+    public function test_user_admin_panel_access_as_admin()
+    {
+        $user = User::factory(['role' => 2])->create();
 
         $this->actingAs($user);
 

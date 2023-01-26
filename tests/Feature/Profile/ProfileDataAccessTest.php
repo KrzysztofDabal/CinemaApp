@@ -8,7 +8,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Hash;
 use Tests\TestCase;
 
-class ProfileAccessTest extends TestCase
+class ProfileDataAccessTest extends TestCase
 {
     use RefreshDatabase;
     /**
@@ -16,33 +16,35 @@ class ProfileAccessTest extends TestCase
      *
      * @return void
      */
-    public function test_profile_access_as_guest()
+    public function test_profile_data_access_as_guest()
     {
-        $response = $this->get('/profile');
+        $response = $this->get('/profile/data');
 
         $response->assertStatus(302)
             ->assertLocation('/login');
     }
 
-    public function test_profile_access_as_user()
+    public function test_profile_data_access_as_user()
     {
         $user = User::factory()->create();
 
         $this->actingAs($user);
 
-        $response = $this->get('/profile/');
+        $response = $this->get('/profile/data');
 
-        $response->assertStatus(200);
+        $response->assertStatus(200)
+            ->assertSeeText($user->name, $user->surname);
     }
 
-    public function test_profile_access_as_admin()
+    public function test_profile_data_access_as_admin()
     {
         $user = User::factory(['role' => 2])->create();
 
         $this->actingAs($user);
 
-        $response = $this->get('/profile/');
+        $response = $this->get('/profile/data');
 
-        $response->assertStatus(200);
+        $response->assertStatus(200)
+            ->assertSeeText($user->name, $user->surname);
     }
 }
