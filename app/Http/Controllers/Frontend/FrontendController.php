@@ -55,4 +55,8 @@ class FrontendController extends Controller
     public function regulamin(){
         return view('frontend.info.regulamin');
     }
+
+    public function price(){
+        return view('frontend.info.price');
+    }
 }

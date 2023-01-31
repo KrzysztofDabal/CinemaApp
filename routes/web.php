@@ -15,9 +15,11 @@ Route::get('/', [FrontendController::class, 'index'])->name('home');
 Route::get('/home', [FrontendController::class, 'index']);
 Route::get('/about', [FrontendController::class, 'about'])->name('about');
 Route::get('/regulamin', [FrontendController::class, 'regulamin'])->name('regulamin');
+Route::get('/price', [FrontendController::class, 'price'])->name('price');
 
 Route::prefix('/profile')->middleware(['auth'])->group(function (){
     Route::get('/', [ProfileController::class, 'dashboard'])->name('profile.dashboard');
+    Route::get('/dashboard', [ProfileController::class, 'dashboard'])->name('profile.dashboard');
     Route::get('/data', [ProfileController::class, 'profile_data'])->name('profile.data');
     Route::post('/data', [ProfileController::class, 'profile_update_form'])->name('profile.update_form');
     Route::post('/post', [ProfileController::class, 'profile_update'])->name('profile.update');

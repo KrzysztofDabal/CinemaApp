@@ -20,7 +20,6 @@
                             </div>
                         @endif
 
-                            {{ $user->id }}<br>
                             {{ $user->name }} {{ $user->surname }}<br>
                             {{ $user->email }}<br>
                             {{ $user->phone_number }}<br>

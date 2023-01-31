@@ -9,7 +9,8 @@
                         {{ __('Profil') }}
                         <div class="float-end">
                             <a href="{{ route('profile.dashboard') }}" class="btn-secondary btn btn-sm float"><-Wróć</a>
-                            <a href="{{ route('profile.update') }}" class="btn btn-primary btn-sm float">Edytuj</a>
+{{--                            <a href="{{ route('profile.update') }}" class="btn btn-primary btn-sm float">Edytuj</a>--}}
+                            <a href="" class="btn btn-primary btn-sm float">Edytuj</a>
                         </div>
                     </div>
 
@@ -20,7 +21,6 @@
                             </div>
                         @endif
 
-                            {{ $user->id }}<br>
                             {{ $user->name }} {{ $user->surname }}<br>
                             {{ $user->email }}<br>
                             {{ $user->phone_number }}<br>
