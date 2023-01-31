@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Admin\SeanceController;
 use App\Http\Requests\ReservationRequest;
 use Illuminate\Http\Request;
 use App\Models\Hall;
@@ -14,7 +15,7 @@ use Illuminate\Support\Str;
 
 class ReservationController extends Controller
 {
-    public  $row_name = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','R','S','T'];
+    public $row_name = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','R','S','T'];
 
     public function array_from_decode_json($json){
         $seat = json_decode($json, true);
@@ -58,9 +59,9 @@ class ReservationController extends Controller
     }
 
     public function user_data(Request $request, $user=null){
-        if(Auth::check()){
-            if (empty($user)) {
-                $user = Auth::user();
+        if(auth()->check()){
+            if($user==null){
+                $user=\auth()->user();
             }
             $user_data = [
                 'user_id' => $user->id,
@@ -159,7 +160,7 @@ class ReservationController extends Controller
     public function update_reservation (ReservationRequest $request, $reservation_id){
         $seat = $request->input('seat');
         $decode_seat = $this->array_from_decode_json($seat);
-        $user_data = $this->user_data(User::find($request, $request->user_id));
+        $user_data = $this->user_data($request, User::find($request->user_id));
         $array = $this->reservation_array($request, $user_data, $decode_seat);
 
         $this->update($array, $reservation_id);

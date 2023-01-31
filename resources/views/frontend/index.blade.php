@@ -12,7 +12,9 @@
                                 <a>
                                     {{--                                <a href="{{  route('show_movie', $movie->id) }}">--}}
                                     <img src="{{  asset('image/movie/'.$movie->image) }}" style="width: 140px; height: 200px;" alt="{{  $movie->title }}"/><br>
-                                    {{  $movie->title }}
+                                    <a href="{{ route('show_movie', $movie->id) }}">
+                                        {{  $movie->title }}
+                                    </a>
                                 </a>
                             </li>
                         @endforeach
