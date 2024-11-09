@@ -21,12 +21,13 @@
                             @endif
 
                                 <div class="row mb-3">
-                                    <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Imię') }}</label>
+                                    <label for="old_password" class="col-md-4 col-form-label text-md-end">{{ __('Stare hasło') }}</label>
 
                                     <div class="col-md-6">
-                                        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $user->name }}" required autocomplete="name">
+                                        <input id="old_password" type="password" class="form-control
+                                        @error('old_password') is-invalid @enderror" name="old_password" value="" required autocomplete="old_password">
 
-                                        @error('name')
+                                        @error('old_password')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -35,12 +36,13 @@
                                 </div>
 
                                 <div class="row mb-3">
-                                    <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Nazwisko') }}</label>
+                                    <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Nowe hasło') }}</label>
 
                                     <div class="col-md-6">
-                                        <input id="surname" type="text" class="form-control @error('surname') is-invalid @enderror" name="surname" value="{{ $user->surname }}" required autocomplete="surname">
+                                        <input id="password" type="password" class="form-control
+                                        @error('password') is-invalid @enderror" name="password" value="" required autocomplete="password">
 
-                                        @error('surname')
+                                        @error('password')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
@@ -49,12 +51,13 @@
                                 </div>
 
                                 <div class="row mb-3">
-                                    <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email') }}</label>
+                                    <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Powtórz nowe hasło') }}</label>
 
                                     <div class="col-md-6">
-                                        <input id="email" type="text" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $user->email }}" required autocomplete="email">
+                                        <input id="password-confirm" type="password" class="form-control
+                                        @error('password-confirm') is-invalid @enderror" name="password-confirm" value="" required autocomplete="password-confirm">
 
-                                        @error('email')
+                                        @error('password-confirm')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>

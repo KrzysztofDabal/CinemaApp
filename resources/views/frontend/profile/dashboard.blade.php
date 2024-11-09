@@ -6,9 +6,8 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        {{ __('Dashboard') }}
+                        {{ __('Profil') }}
                         <div class="float-end">
-                            <a href="{{ route('profile.data') }}" class="btn btn-primary btn-sm float">Profil</a>
                             <a href="{{ route('profile.tickets') }}" class="btn btn-primary btn-sm float">Bilety</a>
                         </div>
                     </div>
@@ -20,7 +19,15 @@
                             </div>
                         @endif
 
-                        Śiema mordo
+                        Imię: {{ $user->name }}<br>
+                        Nazwisko: {{ $user->surname }}<br>
+                        Email: {{ $user->email }}<br>
+                        Nr telefonu: {{ $user->phone_number }}<br>
+
+                        <a href="{{ route('profile.update_form') }}" class="btn btn-primary btn-sm float">Edytuj</a>
+                            @if($user->google_id==NULL)
+                                <a href="{{ route('profile.update_password_form') }}" class="btn btn-primary btn-sm float">Zmień hasło</a>
+                            @endif
                     </div>
                 </div>
             </div>

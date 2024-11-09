@@ -24,6 +24,9 @@
                     <a class="nav-link" href="{{ route('about') }}">O nas</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="{{ route('contact') }}">Kontakt</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{{ route('regulamin') }}">Regulamin</a>
                 </li>
             </ul>
@@ -50,8 +53,8 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('profile.dashboard') }}">{{ __('Dashboard') }}</a>
-                            <a class="dropdown-item" href="{{ route('profile.data') }}">{{ __('Profil') }}</a>
+{{--                            <a class="dropdown-item" href="{{ route('profile.dashboard') }}">{{ __('Dashboard') }}</a>--}}
+                            <a class="dropdown-item" href="{{ route('profile.dashboard') }}">{{ __('Profil') }}</a>
                             <a class="dropdown-item" href="{{ route('profile.tickets') }}">{{ __('Bilety') }}</a>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();

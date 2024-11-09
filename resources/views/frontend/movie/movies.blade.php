@@ -5,7 +5,7 @@
 @section('content')
     <div class="container-fluid px-4">
         <div class="card mb-4">
-            <div class="card-header">
+            <div class="card-header text-center">
                 <h1>Lista Filmów</h1>
             </div>
             <div class="card-body">

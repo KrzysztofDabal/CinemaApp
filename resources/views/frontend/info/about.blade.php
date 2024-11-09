@@ -5,8 +5,11 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="col-md-12 text-center">
-                    <h1>About Us</h1>
+                    <h1>O projekcie</h1>
                 </div>
+                <p>
+                    Projekt strony do zarządzania multipleksem z możliwością przeglądania repertuaru i rezerwacji miejsc dla urzytkowników.
+                </p>
                 <p>
                     &emsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                     <br>

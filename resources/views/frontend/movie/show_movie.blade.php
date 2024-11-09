@@ -17,7 +17,7 @@
                     Category:@foreach($movie->category as $category) {{ $category }}<br> @endforeach<br>
                 </div>
 
-                <a href="{{ url()->previous() }}" class="btn btn-danger">Previous</a>
+                <a href="{{ url()->previous() }}" class="btn btn-danger">Poprzednia strona</a>
             </div>
         </div>
     </div>

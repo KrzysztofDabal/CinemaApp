@@ -59,4 +59,8 @@ class FrontendController extends Controller
     public function price(){
         return view('frontend.info.price');
     }
+
+    public function contact(){
+        return view('frontend.info.contact');
+    }
 }

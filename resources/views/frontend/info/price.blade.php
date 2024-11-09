@@ -8,7 +8,8 @@
                     <h1>Cennik</h1>
                 </div>
                 <p>
-                    Jak najdrożej, a jak najdrożej to po 20ziko. Dla Kamilka zniżka 30ziko.
+                    Cena regularna 20ziko, ale dla ciebie kierowniku będzie taniej 19ziko.<br>
+                    Dla kamiklka zniżka 30ziko.
                 </p>
             </div>
         </div>

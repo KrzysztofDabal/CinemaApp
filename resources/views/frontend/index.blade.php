@@ -10,7 +10,6 @@
                         @foreach($movies_rating as $movie)
                             <li class="nav-item">
                                 <a>
-                                    {{--                                <a href="{{  route('show_movie', $movie->id) }}">--}}
                                     <img src="{{  asset('image/movie/'.$movie->image) }}" style="width: 140px; height: 200px;" alt="{{  $movie->title }}"/><br>
                                     <a href="{{ route('show_movie', $movie->id) }}">
                                         {{  $movie->title }}
@@ -26,7 +25,6 @@
                         @foreach($movies_title as $movie)
                             <li class="nav-item">
                                 <a>
-                                    {{--                                <a href="{{  route('show_movie', $movie->id) }}">--}}
                                     <img src="{{  asset('image/movie/'.$movie->image) }}" style="width: 140px; height: 200px;" alt="{{  $movie->title }}"/><br>
                                     <a href="{{ route('show_movie', $movie->id) }}">
                                         {{  $movie->title }}

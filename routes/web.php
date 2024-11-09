@@ -16,12 +16,14 @@ Route::get('/home', [FrontendController::class, 'index']);
 Route::get('/about', [FrontendController::class, 'about'])->name('about');
 Route::get('/regulamin', [FrontendController::class, 'regulamin'])->name('regulamin');
 Route::get('/price', [FrontendController::class, 'price'])->name('price');
+Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
 
 Route::prefix('/profile')->middleware(['auth'])->group(function (){
     Route::get('/', [ProfileController::class, 'dashboard'])->name('profile.dashboard');
-    Route::get('/data', [ProfileController::class, 'profile_data'])->name('profile.data');
-    Route::post('/data', [ProfileController::class, 'profile_update_form'])->name('profile.update_form');
-    Route::post('/post', [ProfileController::class, 'profile_update'])->name('profile.update');
+    Route::get('/edit1', [ProfileController::class, 'profile_update_form'])->name('profile.update_form');
+    Route::put('/post1/{user_id}', [ProfileController::class, 'profile_update'])->name('profile.update');
+    Route::get('/edit2', [ProfileController::class, 'password_update_form'])->name('profile.update_password_form');
+    Route::put('/post2/{user_id}', [ProfileController::class, 'password_update'])->name('profile.password_update');
 
     Route::get('/tickets', [ProfileReservationsController::class, 'tickets_list'])->name('profile.tickets');
     Route::get('/tickets/{ticket_id}', [ProfileReservationsController::class, 'ticket_show'])->name('profile.ticket_show');
