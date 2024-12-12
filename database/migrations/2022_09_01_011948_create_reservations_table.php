@@ -17,6 +17,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->nullable()->cascadeOnUpdate()->nullOnDelete();
             $table->foreignId('seance_id')->constrained()->onDelete('cascade');
+            $table->foreignId('price_id')->constrained()->onDelete('cascade');
+            $table->foreignId('discount_id')->constrained()->onDelete('cascade');
+            $table->decimal('price', 6, 2);
             $table->string('name');
             $table->string('surname');
             $table->string('email');

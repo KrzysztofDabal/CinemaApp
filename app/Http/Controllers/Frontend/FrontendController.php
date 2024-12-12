@@ -27,7 +27,7 @@ class FrontendController extends Controller
         else{
             $seance_date = $request->input('seance_date');
         }
-        $seances = (new SeanceController())->seances_by_day($seance_date);
+        $seances = (new SeanceController())->seances_by_day($seance_date)->sortBy('time')->sortBy('title');
         $image_route = (new MovieController())->image_route;
         return view('frontend.seances', compact('seances', 'seance_date', 'image_route'));
     }

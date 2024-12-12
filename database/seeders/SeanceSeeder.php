@@ -18,28 +18,18 @@ class SeanceSeeder extends Seeder
      */
     public function run()
     {
-        $movie_id = Movie::first()->id;
         $hall_id = Hall::first()->id;
-        DB::table('seances')->insert([
-            'movie_id' => $movie_id++,
-            'hall_id' => $hall_id++,
-            'date' => \Carbon\Carbon::now()->format('Y-m-d'),
-            'time' => \Carbon\Carbon::now()->format('H:i:s'),
-            'hall_res_time' => (new SeanceController)->hall_res_time($movie_id),
-        ]);
-        DB::table('seances')->insert([
-            'movie_id' => $movie_id++,
-            'hall_id' => $hall_id++,
-            'date' => \Carbon\Carbon::now()->format('Y-m-d'),
-            'time' => \Carbon\Carbon::now()->format('H:i:s'),
-            'hall_res_time' => (new SeanceController)->hall_res_time($movie_id),
-        ]);
-        DB::table('seances')->insert([
-            'movie_id' => $movie_id,
-            'hall_id' => $hall_id++,
-            'date' => \Carbon\Carbon::now()->format('Y-m-d'),
-            'time' => \Carbon\Carbon::now()->format('H:i:s'),
-            'hall_res_time' => (new SeanceController)->hall_res_time($movie_id),
-        ]);
+        for($i=2; $i<6; $i++){
+            for($movie_id = 1; $movie_id<4; $movie_id++){
+                DB::table('seances')->insert([
+                    'movie_id' => $movie_id,
+                    'hall_id' => $hall_id,
+                    'date' => \Carbon\Carbon::now()->format('Y-m-d'),
+                    'time' => \Carbon\Carbon::now()->addHour($i)->format('H:i:s'),
+                    'hall_res_time' => (new SeanceController)->hall_res_time($movie_id),
+                ]);
+
+            }
+        }
     }
 }

@@ -2,11 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Http\Controllers\Admin\SlugController;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
 
 class HallSeeder extends Seeder
 {
@@ -23,7 +21,6 @@ class HallSeeder extends Seeder
         for($i=0; $i<4; $i++){
             DB::table('halls')->insert([
                 'name' => $alphabet[$i].$i+1,
-                'slug' => Str::slug('name'),
                 'rows' => $row,
                 'columns' => $columns,
             ]);

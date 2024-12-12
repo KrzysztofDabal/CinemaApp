@@ -20,6 +20,8 @@ class DatabaseSeeder extends Seeder
             MovieSeeder::class,
             HallSeeder::class,
             SeanceSeeder::class,
+            PriceSeeder::class,
+            DiscountSeeder::class,
             ReservationSeeder::class,
         ]);
     }

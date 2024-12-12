@@ -20,7 +20,7 @@ class GoogleController extends Controller
         $user = User::updateOrCreate([
             'google_id' => $google_user->id,
         ], [
-            'name' => $google_user['given_name'],
+            'name' => $google_user['name'],
             'surname' => $google_user['family_name'],
             'email' => $google_user->email,
             'password' => Hash::make($google_user->id.'!'.$google_user->name.'@'.$google_user->id),

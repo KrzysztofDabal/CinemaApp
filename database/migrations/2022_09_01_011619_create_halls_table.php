@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('halls', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('slug');
             $table->integer('rows');
             $table->integer('columns');
             $table->timestamps();
