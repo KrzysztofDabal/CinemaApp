@@ -11,7 +11,7 @@ use Laravel\Socialite\Facades\Socialite;
 
 class GoogleController extends Controller
 {
-    public function provider(){
+    public function redirect(){
         return Socialite::driver('google')->redirect();
     }
     public function callback(){
@@ -20,8 +20,8 @@ class GoogleController extends Controller
         $user = User::updateOrCreate([
             'google_id' => $google_user->id,
         ], [
-            'name' => $google_user['name'],
-            'surname' => $google_user['family_name'],
+            'name' => $google_user->user['given_name'],
+            'surname' => $google_user->user['family_name'],
             'email' => $google_user->email,
             'password' => Hash::make($google_user->id.'!'.$google_user->name.'@'.$google_user->id),
             'github_token' => $google_user->token,

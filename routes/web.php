@@ -44,8 +44,8 @@ Route::prefix('/reservation')->group(function (){
 });
 
 //GOOGLE
-Route::get('/google/login', [GoogleController::class, 'provider'])->name('google.login');
-Route::get('/google/callback', [GoogleController::class, 'callback'])->name('google.callback');
+Route::get('/auth/google/redirect', [GoogleController::class, 'redirect'])->name('google.redirect');
+Route::get('/auth/google/callback', [GoogleController::class, 'callback'])->name('google.callback');
 
 
 //ADMIN

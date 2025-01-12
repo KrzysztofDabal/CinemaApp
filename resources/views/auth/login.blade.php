@@ -70,7 +70,7 @@
                                         </a>
                                     @endif
 
-                                    <a class="btn btn-link" href="{{ route('google.login') }}">
+                                    <a class="btn btn-link" href="{{ route('google.redirect') }}">
                                         Google
                                     </a>
                                 </div>
