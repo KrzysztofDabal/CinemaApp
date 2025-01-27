@@ -23,6 +23,7 @@ class GoogleController extends Controller
             'name' => $google_user->user['given_name'],
             'surname' => $google_user->user['family_name'],
             'email' => $google_user->email,
+            'email_verified_at' => now(),
             'password' => Hash::make($google_user->id.'!'.$google_user->name.'@'.$google_user->id),
             'github_token' => $google_user->token,
             'github_refresh_token' => $google_user->refreshToken,

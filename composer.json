@@ -1,8 +1,8 @@
 {
-    "name": "laravel/laravel",
+    "name": "cinemaApp",
     "type": "project",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "description": "Web application for cinema multiplex.",
+    "keywords": ["framework", "laravel", "cinema"],
     "license": "MIT",
     "require": {
         "php": "^8.0.2",

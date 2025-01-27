@@ -13,7 +13,7 @@
 
                             <div class="row mb-3">
                                 <label for="email"
-                                       class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
+                                       class="col-md-4 col-form-label text-md-end">{{ __('Adres Email') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="email" type="email"
@@ -52,7 +52,7 @@
                                                id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                                         <label class="form-check-label" for="remember">
-                                            {{ __('Remember Me') }}
+                                            {{ __('ZApamiętaj mnei') }}
                                         </label>
                                     </div>
                                 </div>
@@ -61,17 +61,17 @@
                             <div class="row mb-0">
                                 <div class="col-md-8 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
-                                        {{ __('Login') }}
+                                        {{ __('Zaloguj') }}
                                     </button>
 
                                     @if (Route::has('password.request'))
                                         <a class="btn btn-link" href="{{ route('password.request') }}">
-                                            {{ __('Forgot Your Password?') }}
+                                            {{ __('Przypomnij hasło') }}
                                         </a>
                                     @endif
 
                                     <a class="btn btn-link" href="{{ route('google.redirect') }}">
-                                        Google
+                                        Zaloguj się przez Google
                                     </a>
                                 </div>
                             </div>

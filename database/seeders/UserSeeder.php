@@ -22,6 +22,7 @@ class UserSeeder extends Seeder
             'name' => 'Pan',
             'surname' => 'Admin',
             'email' => 'admin@gmail.com',
+            'email_verified_at' => now(),
             'phone_number' => 123456789,
             'role' => 3,
             'password' => Hash::make('asdasdasd'),
