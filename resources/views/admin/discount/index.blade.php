@@ -33,7 +33,7 @@
                         <tr>
                             <td>{{ $discount->id }}</td>
                             <td>{{ $discount->name }}</td>
-                            <td>{{ $discount->discount }} Zł</td>
+                            <td>{{ $discount->discount }}</td>
                             <td><a href="{{ route('admin/edit_discount', $discount->id) }}" class="btn btn-secondary btn-sm">Edit Discount</a></td>
                             <td><a href="{{ route('admin/delete_discount', $discount->id) }}" class="btn btn-danger btn-sm">Delete Discount</a></td>
                         </tr>

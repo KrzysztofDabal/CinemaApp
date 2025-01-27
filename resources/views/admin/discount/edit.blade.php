@@ -21,7 +21,7 @@
             @endif
 
             <div class="card-body">
-                <form method="POST" action="{{ route('admin/edit_discount', $discount->id) }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('admin/edit_discount', $discount->id) }}">
                     @csrf
                     @method('PUT')
 

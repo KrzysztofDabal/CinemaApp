@@ -23,8 +23,12 @@ class PriceRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            //
+        $rules = [
+
+            'name' => ['required', 'string', 'max:100'],
+            'price' => ['required', 'double', 'max:10'],
         ];
+
+        return $rules;
     }
 }

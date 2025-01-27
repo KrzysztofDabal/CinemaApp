@@ -87,7 +87,7 @@
             </div>
 
             <!-- DISCOUNT -->
-            <!-- <a class="nav-link {{ Request::routeIs('admin/discount')||Request::routeIs('admin/add_discount') ? 'collapse active' : 'collapsed' }}" href="#" data-bs-toggle="collapse" data-bs-target="#collapseDiscount" aria-expanded="false" aria-controls="collapseLayouts">
+            <a class="nav-link {{ Request::routeIs('admin/discount')||Request::routeIs('admin/add_discount') ? 'collapse active' : 'collapsed' }}" href="#" data-bs-toggle="collapse" data-bs-target="#collapseDiscount" aria-expanded="false" aria-controls="collapseLayouts">
                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                 Discount
                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -97,7 +97,7 @@
                     <a class="nav-link {{ Request::routeIs('admin/discount') ? 'active' : '' }}" href="{{ route('admin/discount') }}">View Discount</a>
                     <a class="nav-link {{ Request::routeIs('admin/add_discount') ? 'active' : '' }}" href="{{ route('admin/add_discount') }}">Add Discount</a>
                 </nav>
-            </div> -->
+            </div>
 
 
         </div>

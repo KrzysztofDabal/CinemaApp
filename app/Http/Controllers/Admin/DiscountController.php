@@ -3,9 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Models\Discount;
 use App\Http\Requests\DiscountRequest;
+use App\Models\Discount;
 
 class DiscountController extends Controller
 {
@@ -15,11 +14,12 @@ class DiscountController extends Controller
     }
 
     public function add_discount_form(){
-        return view('admin.discount.add_discount_form');
+        return view('admin.discount.create');
     }
 
     public function add_discount(DiscountRequest $request){
-        return Discount::create($request->all());
+        Discount::create($request->all());
+        return redirect()->route('admin/discount')->with('message', "Discount created");
     }
 
     public function edit($discount_id){

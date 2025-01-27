@@ -19,11 +19,13 @@ class PriceSeeder extends Seeder
             [
                 'name' => 'Normalny',
                 'price' => 30
-            ],
+            ]
+            );
+        DB::table('prices')->insert(
             [
                 'name' => 'Ulgowy',
                 'price' => 20
             ]
-    );
+            );
     }
 }

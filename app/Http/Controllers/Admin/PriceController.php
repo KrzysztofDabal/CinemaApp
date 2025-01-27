@@ -3,9 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Models\Price;
 use App\Http\Requests\PriceRequest;
+use App\Models\Price;
 
 class PriceController extends Controller
 {

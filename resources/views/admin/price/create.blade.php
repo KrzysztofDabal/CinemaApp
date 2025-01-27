@@ -21,7 +21,7 @@
             @endif
 
             <div class="card-body">
-                <form method="POST" action="{{ route('admin/add_price') }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('admin/add_price') }}">
                     @csrf
 
                     <div class="row mb-3">
@@ -42,7 +42,7 @@
                         <label for="author" class="col-md-4 col-form-label text-md-end">{{ __('Price') }}</label>
 
                         <div class="col-md-6">
-                            <input id="price" type="number" class="form-control @error('price') is-invalid @enderror" name="price" value="{{ old('price') }}" required autocomplete="price">
+                            <input id="price" type="double" class="form-control @error('price') is-invalid @enderror" name="price" value="{{ old('price') }}" required autocomplete="price">
 
                             @error('price')
                             <span class="invalid-feedback" role="alert">

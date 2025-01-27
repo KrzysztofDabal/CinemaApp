@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\HallRequest;
 use App\Models\Hall;
-use Illuminate\Support\Str;
 
 class HallController extends Controller
 {
