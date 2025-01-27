@@ -14,7 +14,6 @@ class Hall extends Model
     protected $fillable = [
         'name',
         'rows',
-        'columns',
-        'slug'
+        'columns'
     ];
 }

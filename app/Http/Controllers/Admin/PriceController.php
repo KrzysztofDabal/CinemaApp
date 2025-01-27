@@ -15,10 +15,11 @@ class PriceController extends Controller
     }
 
     public function add_price_form(){
-        return view('admin.price.add_price_form');
+        return view('admin.price.create');
     }
 
     public function add_price(PriceRequest $request){
+        dd($request);
         return Price::create($request->all());
     }
 

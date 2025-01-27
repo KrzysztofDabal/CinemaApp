@@ -8,7 +8,7 @@
                 Dashboard
             </a>
 
-            {{--                MOVIE--}}
+            <!-- MOVIE -->
             <a class="nav-link {{ Request::routeIs('admin/movie')||Request::routeIs('admin/add_movie') ? 'collapse active' : 'collapsed' }}" href="#" data-bs-toggle="collapse" data-bs-target="#collapseMovie" aria-expanded="true" aria-controls="collapseLayouts">
                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                 Movie
@@ -21,7 +21,7 @@
                 </nav>
             </div>
 
-            {{--                USER--}}
+            <!-- USER -->
             <a class="nav-link {{ Request::routeIs('admin/user')||Request::routeIs('admin/user.add') ? 'collapse active' : 'collapsed' }}" href="#" data-bs-toggle="collapse" data-bs-target="#collapseUser" aria-expanded="false" aria-controls="collapseLayouts">
                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                 User
@@ -34,7 +34,7 @@
                 </nav>
             </div>
 
-            {{--                HALL--}}
+            <!-- HALL -->
             <a class="nav-link {{ Request::routeIs('admin/hall')||Request::routeIs('admin/add_hall') ? 'show' : '' }}" href="#" data-bs-toggle="collapse" data-bs-target="#collapseHall" aria-expanded="false" aria-controls="collapseLayouts">
                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                 Hall
@@ -47,7 +47,7 @@
                 </nav>
             </div>
 
-            {{--                SEANCE--}}
+            <!-- SEANCE -->
             <a class="nav-link {{ Request::routeIs('admin/seance')||Request::routeIs('admin/add_seance') ? 'collapse active' : 'collapsed' }}" href="#" data-bs-toggle="collapse" data-bs-target="#collapseSeance" aria-expanded="false" aria-controls="collapseLayouts">
                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                 Seance
@@ -60,7 +60,7 @@
                 </nav>
             </div>
 
-            {{--                RESERVATION--}}
+            <!-- RESERVATION -->
             <a class="nav-link {{ Request::routeIs('admin/reservation')||Request::routeIs('admin/add_reservation') ? 'collapse active' : 'collapsed' }}" href="#" data-bs-toggle="collapse" data-bs-target="#collapseReservation" aria-expanded="false" aria-controls="collapseLayouts">
                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                 Reservation
@@ -72,6 +72,32 @@
                     <a class="nav-link {{ Request::routeIs('admin/add_reservation') ? 'active' : '' }}" href="{{ route('admin/add_reservation') }}">Add Reservation</a>
                 </nav>
             </div>
+
+            <!-- Price -->
+            <a class="nav-link {{ Request::routeIs('admin/price')||Request::routeIs('admin/add_price') ? 'collapse active' : 'collapsed' }}" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePrice" aria-expanded="false" aria-controls="collapseLayouts">
+                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                Price
+                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+            </a>
+            <div class="collapse {{ Request::routeIs('admin/price')||Request::routeIs('admin/add_price') ? 'show' : '' }}" id="collapsePrice" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                <nav class="sb-sidenav-menu-nested nav">
+                    <a class="nav-link {{ Request::routeIs('admin/price') ? 'active' : '' }}" href="{{ route('admin/price') }}">View price</a>
+                    <a class="nav-link {{ Request::routeIs('admin/add_price') ? 'active' : '' }}" href="{{ route('admin/add_price') }}">Add price</a>
+                </nav>
+            </div>
+
+            <!-- DISCOUNT -->
+            <!-- <a class="nav-link {{ Request::routeIs('admin/discount')||Request::routeIs('admin/add_discount') ? 'collapse active' : 'collapsed' }}" href="#" data-bs-toggle="collapse" data-bs-target="#collapseDiscount" aria-expanded="false" aria-controls="collapseLayouts">
+                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                Discount
+                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+            </a>
+            <div class="collapse {{ Request::routeIs('admin/discount')||Request::routeIs('admin/add_discount') ? 'show' : '' }}" id="collapseDiscount" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                <nav class="sb-sidenav-menu-nested nav">
+                    <a class="nav-link {{ Request::routeIs('admin/discount') ? 'active' : '' }}" href="{{ route('admin/discount') }}">View Discount</a>
+                    <a class="nav-link {{ Request::routeIs('admin/add_discount') ? 'active' : '' }}" href="{{ route('admin/add_discount') }}">Add Discount</a>
+                </nav>
+            </div> -->
 
 
         </div>

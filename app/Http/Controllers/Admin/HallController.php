@@ -19,6 +19,13 @@ class HallController extends Controller
         return view('admin.hall.create');
     }
 
+    public function store(HallRequest $request){
+        $request->validated();
+        Hall::create($request->all());
+
+        return redirect()->route('admin/hall')->with('message', 'New Seance created');
+    }
+
     public function edit($hall_id){
         $hall = Hall::find($hall_id);
         if($hall){
@@ -27,19 +34,10 @@ class HallController extends Controller
         return redirect()->route('admin/hall')->with('message', 'Hall doesn\'t exist');
     }
 
-    public function store(HallRequest $request){
-        $request->validated();
-        $slug = Str::slug($request['name']);
-        Hall::create($request->all() + ['slug' => $slug]);
-
-        return redirect()->route('admin/hall')->with('message', 'New Seance created');
-    }
-
     public function update(HallRequest $request, $hall_id){
         $request->validated();
         $hall = Hall::find($hall_id);
-        $slug = Str::slug($request['name']);
-        $hall->update($request->all() + ['slug' => $slug]);
+        $hall->update($request->all());
 
         return redirect()->route('admin/hall')->with('message', 'Seance edited');
     }
