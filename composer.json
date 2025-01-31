@@ -1,5 +1,5 @@
 {
-    "name": "cinemaApp",
+    "name": "KinoUltima",
     "type": "project",
     "description": "Web application for cinema multiplex.",
     "keywords": ["framework", "laravel", "cinema"],

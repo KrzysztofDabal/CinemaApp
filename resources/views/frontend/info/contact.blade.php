@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="col-md-12 text-center">
-                    <h1>O projekcie</h1>
+                    <h1>Kontakt</h1>
                 </div>
                 <p>
                     E-mail: Multipleks_name@mail_name.com<br>

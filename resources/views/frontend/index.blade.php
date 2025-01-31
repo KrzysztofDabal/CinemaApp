@@ -20,7 +20,7 @@
                     </ul>
                 </div>
                 <div class="col-md-12 text-center">
-                    <h1>Polecane filmy - tytuł</h1>
+                    <h1>Nowe filmy</h1>
                     <ul class="nav justify-content-center nav-fill">
                         @foreach($movies_title as $movie)
                             <li class="nav-item">
