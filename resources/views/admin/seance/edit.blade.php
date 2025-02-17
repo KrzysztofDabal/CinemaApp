@@ -21,7 +21,7 @@
             @endif
 
             <div class="card-body">
-                <form method="POST" action="{{ route('admin/edit_seance', $seance->id) }}">
+                <form method="POST" action="{{ route('admin/update_seance', $seance->id) }}">
                     @csrf
                     @method('PUT')
 

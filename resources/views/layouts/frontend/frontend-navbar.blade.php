@@ -12,7 +12,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('seances') }}">Repertuar</a>
+                    <a class="nav-link" href="{{ route('get_seances') }}">Repertuar</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('movies') }}">Filmy</a>

@@ -21,7 +21,7 @@
             @endif
 
             <div class="card-body">
-                <form method="POST" action="{{ route('admin/add_movie') }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('admin/movie_store') }}" enctype="multipart/form-data">
                     @csrf
 
                     <div class="row mb-3">

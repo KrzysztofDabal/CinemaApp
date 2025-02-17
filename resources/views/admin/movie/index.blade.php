@@ -10,7 +10,7 @@
             <div class="card-header">
                 <i class="fas fa-table me-1"></i>
                 Movies
-                <a href="{{ route('admin/add_movie') }}" class="btn btn-primary btn-sm float-end">Add Movie</a>
+                <a href="{{ route('admin/movie_add') }}" class="btn btn-primary btn-sm float-end">Add Movie</a>
             </div>
             <div class="card-body">
 
@@ -48,7 +48,7 @@
                             <td>{{ $movie->length }}min</td>
                             <td>{{ $movie->rating }}</td>
                             <td>@foreach($movie->category as $category) {{ $category }}<br> @endforeach</td>
-                            <td><a href="{{ route('admin/edit_movie', $movie->id) }}" class="btn btn-secondary btn-sm">Edit Movie</a></td>
+                            <td><a href="{{ route('admin/movie_edit', $movie->id) }}" class="btn btn-secondary btn-sm">Edit Movie</a></td>
                             <td><a href="{{ route('admin/delete_movie', $movie->id) }}" class="btn btn-danger btn-sm">Delete Movie</a></td>
                         </tr>
                     @endforeach
