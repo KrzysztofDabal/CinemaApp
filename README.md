@@ -23,7 +23,9 @@ https://developers.google.com/identity/gsi/web/guides/get-google-api-clientid?hl
 Kroki wymagane do kompilacji, testowego uruchomienia oraz konfiguracji aplikacji: 
 
 
- 1. Z płyty CD zatytułowanej "Krzysztof Dąbal - Aplikacja webowa do rezerwacji i zakupu biletów do multipleksu" skopiować na dysk folder "cinema_projekt"
+ 1. Sklonuj repozytorium
+git clone [https://github.com/twoj-login/nazwa-repo.git](https://github.com/KrzysztofDabal/CinemaApp.git)
+cd CinemaApp
 
 2. Uruchomienie aplikacji
  a) Uruchomienie programu XAMPP
