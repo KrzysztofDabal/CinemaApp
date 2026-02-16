@@ -13,6 +13,7 @@ class ProfileReservationsController extends Controller
         $reservations = (new GetReservationByController())->get_reservation_with_seance($user->id);
         return view('frontend.profile.tickets_list', compact('reservations'));
     }
+    
     public function ticket_show($reservation_id){
         $reservation = (new GetReservationByController())->get_reservation_by_id($reservation_id);
         return view('frontend.profile.ticket_show', compact('reservation'));

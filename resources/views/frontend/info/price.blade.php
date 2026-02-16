@@ -8,8 +8,7 @@
                     <h1>Cennik</h1>
                 </div>
                 <p>
-                    Cena regularna 20ziko, ale dla ciebie kierowniku będzie taniej 19ziko.<br>
-                    Dla kamiklka zniżka 30ziko.
+                    Cena za bilet wynosi {{ $price->price }} zł
                 </p>
             </div>
         </div>

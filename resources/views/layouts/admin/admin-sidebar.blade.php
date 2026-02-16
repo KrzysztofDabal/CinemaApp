@@ -9,15 +9,15 @@
             </a>
 
             <!-- MOVIE -->
-            <a class="nav-link {{ Request::routeIs('admin/movie')||Request::routeIs('admin/add_movie') ? 'collapse active' : 'collapsed' }}" href="#" data-bs-toggle="collapse" data-bs-target="#collapseMovie" aria-expanded="true" aria-controls="collapseLayouts">
+            <a class="nav-link {{ Request::routeIs('admin/movie')||Request::routeIs('admin/movie_store') ? 'collapse active' : 'collapsed' }}" href="#" data-bs-toggle="collapse" data-bs-target="#collapseMovie" aria-expanded="true" aria-controls="collapseLayouts">
                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                 Movie
                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
             </a>
-            <div class="collapse {{ Request::routeIs('admin/movie')||Request::routeIs('admin/add_movie') ? 'show' : '' }}" id="collapseMovie" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+            <div class="collapse {{ Request::routeIs('admin/movie')||Request::routeIs('admin/movie_store') ? 'show' : '' }}" id="collapseMovie" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                 <nav class="sb-sidenav-menu-nested nav">
                     <a class="nav-link {{ Request::routeIs('admin/movie') ? 'active' : '' }}" href="{{ route('admin/movie') }}">View Movie</a>
-                    <a class="nav-link {{ Request::routeIs('admin/add_movie') ? 'active' : '' }}" href="{{ route('admin/add_movie') }}">Add movie</a>
+                    <a class="nav-link {{ Request::routeIs('admin/movie_store') ? 'active' : '' }}" href="{{ route('admin/movie_store') }}">Add movie</a>
                 </nav>
             </div>
 

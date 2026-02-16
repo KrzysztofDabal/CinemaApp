@@ -2,12 +2,9 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Http\Controllers\Admin\SeanceController;
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\Admin\MovieController;
 use App\Models\Movie;
-use Carbon\Carbon;
-use Illuminate\Http\Request;
+use App\Models\Price;
 use Illuminate\Support\Facades\DB;
 
 class FrontendController extends Controller
@@ -19,34 +16,6 @@ class FrontendController extends Controller
         return view('frontend.index', compact('movies', 'movies_rating', 'movies_title'));
     }
 
-    public function seances(Request $request){
-        if($request->input('seance_date') == null){
-            $seance_date = Carbon::now()->format('d.m');
-        }
-        else{
-            $seance_date = $request->input('seance_date');
-        }
-        $seances = (new SeanceController())->seances_by_day($seance_date)->sortBy('time')->sortBy('title');
-        $image_route = (new MovieController())->image_route;
-        return view('frontend.seances', compact('seances', 'seance_date', 'image_route'));
-    }
-
-    public function movies(){
-        $movies = Movie::all();
-        return view('frontend.movie.movies', compact('movies'));
-    }
-
-    public function show_movie($movie_id){
-        $movie = Movie::find($movie_id);
-        if($movie){
-            $movie['category'] = json_decode($movie['category'],true);
-            return view('frontend.movie.show_movie', compact('movie'));
-        }
-        else{
-            return redirect('/');
-        }
-    }
-
     public function about(){
         return view('frontend.info.about');
     }
@@ -56,7 +25,8 @@ class FrontendController extends Controller
     }
 
     public function price(){
-        return view('frontend.info.price');
+        $price = Price::all()->first();
+        return view('frontend.info.price', compact('price'));
     }
 
     public function contact(){

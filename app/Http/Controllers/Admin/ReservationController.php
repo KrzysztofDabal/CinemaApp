@@ -10,8 +10,8 @@ use App\Models\Hall;
 use App\Models\Reservation;
 use App\Models\Seance;
 use App\Models\User;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Str;
+use App\Models\Price;
+use Illuminate\Support\Arr;
 
 class ReservationController extends Controller
 {
@@ -24,7 +24,6 @@ class ReservationController extends Controller
 
     public function seat_name($seat){
         $json = json_decode($seat, true);
-
         $seat_name = $this->row_name[$json['row']].$json['column'];
         return $seat_name;
     }
@@ -154,7 +153,13 @@ class ReservationController extends Controller
     }
 
     public function store($reservation){
-            return Reservation::create($reservation);
+        $price = Price::all()->first();
+        $reservation['price_id'] = $price->id;
+        $reservation['discount_id'] = null;
+        $reservation['price'] = $price->price;
+        $reservation['paid'] = false;
+        // dd($reservation);
+        return Reservation::create($reservation);
     }
 
     public function update_reservation (ReservationRequest $request, $reservation_id){

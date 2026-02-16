@@ -46,7 +46,7 @@
 
                             <div class="row mb-3">
                                 <label for="email"
-                                       class="col-md-4 col-form-label text-md-end">{{ __('Adres Email) }}</label>
+                                       class="col-md-4 col-form-label text-md-end">{{ __('Adres Email') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="email" type="email"
@@ -91,7 +91,7 @@
                             <div class="row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
-                                        {{ __('Zarejestrój') }}
+                                        {{ __('Zarejestruj') }}
                                     </button>
                                 </div>
                             </div>

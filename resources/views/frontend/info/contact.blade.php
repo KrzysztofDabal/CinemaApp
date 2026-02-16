@@ -8,7 +8,7 @@
                     <h1>Kontakt</h1>
                 </div>
                 <p>
-                    E-mail: Multipleks_name@mail_name.com<br>
+                    E-mail: Loremipsum@email.com<br>
                     Telefon: 123456789
                 </p>
                 <p>

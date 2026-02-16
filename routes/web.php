@@ -15,6 +15,8 @@ use App\Http\Controllers\Admin\ReservationController;
 use App\Http\Controllers\Admin\MovieController;
 use App\Http\Controllers\Admin\PriceController;
 use App\Http\Controllers\Admin\DiscountController;
+use App\Http\Controllers\Frontend\MoviesController;
+use App\Http\Controllers\Frontend\SeancesController;
 
 
 Auth::routes();
@@ -37,12 +39,12 @@ Route::prefix('/profile')->middleware(['auth'])->group(function (){
     Route::get('/tickets/{ticket_id}', [ProfileReservationsController::class, 'ticket_show'])->name('profile.ticket_show');
 });
 Route::prefix('/movie')->group(function (){
-    Route::get('/', [FrontendController::class, 'movies'])->name('movies');
-    Route::get('/{movie_id}', [FrontendController::class, 'show_movie'])->name('show_movie');
+    Route::get('/', [MoviesController::class, 'movies'])->name('movies');
+    Route::get('/{movie_id}', [MoviesController::class, 'show_movie'])->name('show_movie');
 });
 Route::prefix('/seances')->group(function (){
-    Route::get('/', [FrontendController::class, 'seances'])->name('get_seances');
-    Route::post('/', [FrontendController::class, 'seances'])->name('seances');
+    Route::get('/', [SeancesController::class, 'seances'])->name('get_seances');
+    Route::post('/', [SeancesController::class, 'seances'])->name('seances');
 });
 Route::prefix('/reservation')->group(function (){
     Route::get('/{seance_id}', [UserReservationController::class, 'seat_select'])->name('reservation.seat_select');
@@ -72,10 +74,10 @@ Route::prefix('/admin')->middleware(['auth', 'admin'])->group(function() {
     //MOVIE
     Route::prefix('/movie')->group(function() {
         Route::get('/', [MovieController::class, 'index'])->name('admin/movie');
-        Route::get('/add_movie', [MovieController::class, 'create'])->name('admin/movie.add');
-        Route::post('/add_movie', [MovieController::class, 'store_request'])->name('admin/movie.store');
-        Route::get('/edit_movie/{movie_id}', [MovieController::class, 'edit'])->name('admin/movie.edit');
-        Route::put('/edit_movie/{movie_id}', [MovieController::class, 'update'])->name('admin/movie.update');
+        Route::get('/add_movie', [MovieController::class, 'create'])->name('admin/movie_add');
+        Route::post('/add_movie', [MovieController::class, 'store_request'])->name('admin/movie_store');
+        Route::get('/edit_movie/{movie_id}', [MovieController::class, 'edit'])->name('admin/movie_edit');
+        Route::put('/edit_movie/{movie_id}', [MovieController::class, 'update'])->name('admin/movie_update');
         Route::get('/delete_movie/{movie_id}', [MovieController::class, 'delete'])->name('admin/delete_movie');
     });
     //HALL
