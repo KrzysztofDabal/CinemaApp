@@ -24,15 +24,15 @@ Kroki wymagane do kompilacji, testowego uruchomienia oraz konfiguracji aplikacji
 
 
  1. Sklonuj repozytorium
-git clone [https://github.com/twoj-login/nazwa-repo.git](https://github.com/KrzysztofDabal/CinemaApp.git)
-cd CinemaApp
 
-2. Uruchomienie aplikacji
+        git clone [https://github.com/twoj-login/nazwa-repo.git](https://github.com/KrzysztofDabal/CinemaApp.git)
+        cd CinemaApp
+
+3. Uruchomienie aplikacji
  a) Uruchomienie programu XAMPP
  • Po uruchomieniu programu należy aktywować moduły klikając przycisk start:
 
    – Apach
-   
    – MySQL
    
  • Uruchomić phpmyadmin klikając przycisk $admin$ przy module MySQL
