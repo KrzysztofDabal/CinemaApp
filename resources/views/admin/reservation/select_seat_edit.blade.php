@@ -22,7 +22,7 @@
             @endif
 
             <div class="card-body">
-                <form method="POST" action="{{ route('admin/edit_reservation', $reservation->id) }}">
+                <form method="POST" action="{{ route('admin/update_reservation', $reservation->id) }}">
                     @csrf
                     @method('PUT')
 

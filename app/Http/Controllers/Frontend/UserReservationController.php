@@ -5,11 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Admin\SeanceController;
 use App\Http\Controllers\Admin\ReservationController;
 use App\Http\Controllers\Controller;
-use App\Models\User;
-use http\Env\Response;
 use Illuminate\Http\Request;
-use App\Http\Requests\ReservationRequest;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
 
 class UserReservationController extends Controller

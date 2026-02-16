@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Http\Controllers\admin\ReservationController;
 use App\Http\Controllers\Admin\SeanceController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Admin\MovieController;

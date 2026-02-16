@@ -21,7 +21,7 @@
             @endif
 
             <div class="card-body">
-                <form method="POST" action="{{ route('admin/edit_price', $price->id) }}">
+                <form method="POST" action="{{ route('admin/update_price', $price->id) }}">
                     @csrf
                     @method('PUT')
 

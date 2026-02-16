@@ -21,7 +21,7 @@
             @endif
 
             <div class="card-body">
-                <form method="POST" action="{{ route('admin/add_price') }}">
+                <form method="POST" action="{{ route('admin/store_price') }}">
                     @csrf
 
                     <div class="row mb-3">

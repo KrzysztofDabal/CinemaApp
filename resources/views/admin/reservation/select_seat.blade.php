@@ -15,7 +15,7 @@
 
 
             <div class="card-body text-center">
-                <form method="POST" action="{{ route('admin/add_reservation') }}">
+                <form method="POST" action="{{ route('admin/store_reservation') }}">
                     @csrf
 
                     <input type="number" name="user_id" id="user_id" value="{{ $user_id }}" hidden>
