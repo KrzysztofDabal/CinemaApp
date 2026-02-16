@@ -25,7 +25,7 @@ Kroki wymagane do kompilacji, testowego uruchomienia oraz konfiguracji aplikacji
 
  1. Sklonuj repozytorium
 
-        git clone [https://github.com/twoj-login/nazwa-repo.git](https://github.com/KrzysztofDabal/CinemaApp.git)
+        git clone https://github.com/KrzysztofDabal/CinemaApp.git
         cd CinemaApp
 
 3. Uruchomienie aplikacji
